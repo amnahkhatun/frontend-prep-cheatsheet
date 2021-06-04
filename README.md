@@ -345,7 +345,7 @@ Array.prototype.myMap = function (cb){
 arr.myMap((item) => console.log(item * 2))
 ```
 
-###React
+### React
 
 **props vs state**
 | Props | state |
@@ -358,20 +358,56 @@ arr.myMap((item) => console.log(item * 2))
 
 **HOC**
 
+https://codesandbox.io/s/a-simple-higher-order-component-forked-lk8gq?file=/index.js
+
 - A HOC takes a component as input parameter and returns a new component.
 - We don’t modify or mutate the component. We create new ones.
 - A HOC is used to compose components for code reuse.
 - A HOC is a pure function. That means it has no side effects. It only returns a new component.
 
-####Hooks
-It combines the componentDidMount, componentDidUpdate and componentWillUnmount.
+```
+const Hello = ({name}) => <h1>Hello {name}</h1>
+
+function simpleHOC (WrappedComponent){
+  return class extends React.Component {
+    render(){
+      <WrappedComponent {...props}/>
+    }
+  }
+}
+
+const NewComponent = simpleHOC(Hello);
+
+const App(){
+  <NewComponent name ="Hello" >
+}
+
+```
+
+- Reuse component logic
+
+```
+const EnhancedComponent = higherOrderComponent(WrappedComponent);
+```
+
+https://www.smashingmagazine.com/2020/06/higher-order-components-react/
+
+Eg of HOC
+
+- PROVIDE COMPONENTS WITH SPECIFIC STYLING
+
+#### Hooks
+
+`const [count, setCount] = useState(0);`
+
+- It combines the componentDidMount, componentDidUpdate and componentWillUnmount.
 
 - To run the useEffect on first render and on every update, no need to pass 2nd argument.
-- To call the method only when something changes, pass the secong argument.
+- To call the method only when something changes, pass the second argument.
 - To mimic componentWillUnmount, useEffect may return a function that cleans up after it.
 - We can have mutiple effects in the same component.
 
-###Redux
+### Redux
 
 **core concept of redux**
 
