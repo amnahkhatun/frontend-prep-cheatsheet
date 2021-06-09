@@ -344,3 +344,133 @@ function delay(time) {
 var callback = () => alert("runs after 3 seconds");
 
 delay(3000).then(callback);
+
+// Zapr 1st round
+let obj1 = {
+  fname: "amnah"
+};
+
+let obj2 = {
+  fname: "elon"
+};
+
+function printName(greet) {
+  console.log(this.fname, greet);
+}
+
+printName.call(obj1, "hi");
+printName.apply(obj2, ["hi"]);
+
+function hello() {
+  setTimeout(() => {
+    console.log(this.name);
+  }, 100);
+}
+hello.call({ name: "tom" });
+
+for (var i = 0; i < 10; i++) {
+  function xyz(j) {
+    setTimeout(function() {
+      console.log(j);
+    }, 0);
+  }
+  xyz(i);
+}
+
+(function() {
+  try {
+    throw new Error();
+  } catch (x) {
+    var x = 1,
+      y = 2;
+    console.log(x); //1
+  }
+  console.log(x); // undefined
+  console.log(y); // 2
+})();
+
+(function() {
+  var x, y;
+  try {
+    throw new Error();
+  } catch (x) {
+    x = 1;
+    y = 2;
+    console.log(x); //1
+  }
+  console.log(x);
+  console.log(y);
+})();
+var a = [1, 2, 3];
+var b = [1, 2, 3];
+var c = "1,2,3";
+
+// == implicitely converts one of the value
+
+console.log(a == c); // true //array is implicitly converted to primitive value ie string
+console.log(b == c); // true // implicitely converts array to string
+console.log(a == b); // false
+console.log(typeof a);
+console.log(typeof b);
+console.log(typeof c);
+
+var Employee = {
+  company: "xyz"
+};
+var emp1 = Object.create(Employee);
+delete emp1.company;
+console.log(emp1.company); //xyz
+
+console.log(emp1.hasOwnProperty("company")); //false
+var courses = ["JavaScript", "Java", "C", "C++", "Python"];
+delete courses[2];
+//  console.log(courses) //["JavaScript", "Java", undefined, "C++", "Python"]
+// console.log(courses.map(e => 7)); //[7, 7, undefined, 7, 7]
+var b = [];
+b[0] = undefined;
+b[2] = 1;
+console.log(b.map(e => 7)); //[7, undefined, 7]
+
+const myObj = {
+  a: 1,
+  b: "hello",
+  c: [0, 1, 2],
+  d: { e: 1, f: 2 }
+};
+Object.freeze(myObj);
+
+myObj.b = "hi";
+
+console.log(myObj);
+
+function xyz(myObj) {
+  Object.freeze(myObj);
+  Object.entries(myObj).map(([key, value]) => {
+    if (typeof value === "object") {
+      xyz(value);
+    }
+  });
+  return false;
+}
+
+xyz(myObj);
+
+const getResult = async () => {
+  const result = [];
+  for (let i = 0; i < 5; i++) {
+    result.push(await doAsyncCall());
+  }
+  console.log(result);
+};
+
+const getResult1 = () => {
+  const result = [];
+  [0, 1, 2, 3, 4].forEach(async num => {
+    result.push(await doAsyncCall());
+  });
+  console.log(result);
+};
+
+/* There is an array. find two elements in array that sum to x. retrun -1 if no such elements exist.
+x = 13;
+[5, 8, 3, 13, 15, 12, 8, 20, 12, 20] */

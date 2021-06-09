@@ -66,6 +66,19 @@ https://www.freecodecamp.org/news/semantic-html5-elements/#:~:text=Semantic%20HT
 
 - https://rananitesh99.medium.com/five-css-interview-questions-you-will-be-asked-every-time-72fff69ecde
 
+- Height is the vertical measurement of the container.
+- line-height is the distance from the top of the first line of text to the top of the second. It is relevent when user might resize the text.
+- If you wrap the text in a div, give the div a height, and the text grows to be 2 lines (perhaps because it is being viewed on a small screen like a phone) then the text will overlap with the elements below it. On the other hand, if you give the div a line-height and the text grows to 2 lines, the div will expand (assuming you don't also give the div a height).
+
+* display:none means that the tag in question will not appear on the page at all (although you can still interact with it through the dom). There will be no space allocated for it between the other tags.
+
+* visibility:hidden means that unlike display:none, the tag is not visible, but space is allocated for it on the page. The tag is rendered, it just isn't seen on the page.
+  http://jsfiddle.net/burhans/ZVgJj/
+
+  https://dev.to/prashantandani/quick-guide-to-css-units-px-em-rem-4lic
+
+  https://www.youtube.com/watch?v=-GR52czEd-0
+
 ### JS
 
 **ES2021**
@@ -413,6 +426,8 @@ console.log(b) ==> 20 [Block memory space]
 console.log(b) ==> 200 [script memory space]
 let & const are stored in different memory location
 
+![Screenshot](scope_chain.jpeg)
+
 **closures**
 
 - closure is function bundled together with its lexical environment.
@@ -574,7 +589,3 @@ Some of these features are proxying network requests, push notifications and bac
 Web worker
 
 - Web Workers are a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface. In addition, they can perform I/O using XMLHttpRequest (although the responseXML and channel attributes are always null) or fetch (with no such restrictions).
-
-```
-
-```
