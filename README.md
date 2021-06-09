@@ -79,9 +79,9 @@ console.log(fruitsWithBanana); //🍎😇🍐😇🍓😇
 
 ```
 
--Logical assignment operator
+- Logical assignment operator
 
-````
+```
 a ||= b
 // Equivalent to:
 a || (a = b);
@@ -92,8 +92,8 @@ a && (a = b);
 ```
 
 - Numeric separators
-```
-const amount = 12345_00;  // 12,345 (1234500 cents, apparently)
+
+```const amount = 12345_00;  // 12,345 (1234500 cents, apparently)
 const amount = 123_4500;  // 123.45 (4-fixed financial)
 const amount = 1_234_500; // 1,234,500
 ```
@@ -115,7 +115,7 @@ const amount = 1_234_500; // 1,234,500
 
 **copy objects**
 
-````
+```
 
 const person = {
 firstName: 'John',
@@ -156,21 +156,55 @@ console.log(obj2, "obj2"); // { fname: 'elon', lname: 'khatun', address: { city:
 
 ```
 
-- seal() and freeze() is used to prevent modification of an object.
+- The **Object.freeze()** method freezes an object. A frozen object can no longer be changed; freezing an object prevents new properties from being added to it, existing properties from being removed.
+
+```
+
+const obj = {
+prop: 42
+};
+
+Object.freeze(obj);
+
+obj.prop = 33;
+// Throws an error in strict mode
+
+console.log(obj.prop);
+// expected output: 42
+
+```
+
+- The Object.seal() method seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. Values of present properties can still be changed as long as they are writable.
+
+```
+
+const object1 = {
+property1: 42
+};
+
+Object.seal(object1);
+object1.property1 = 33;
+console.log(object1.property1);
+// expected output: 33
+
+delete object1.property1; // cannot delete when sealed
+console.log(object1.property1);
+// expected output: 33
+
+```
 
 **Type coercion**
 
+https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
+
 - Type coercion is the process of converting value from one type to another (such as string to number, object to boolean, and so on).
-```
 
-When a developer expresses the intention to convert between types by writing the appropriate code, like Number(value), it’s called explicit type coercion (or type casting).
+_When a developer expresses the intention to convert between types by writing the appropriate code, like Number(value), it’s called explicit type coercion (or type casting)._
 
-Since JavaScript is a weakly-typed language, values can also be converted between different types automatically, and it is called implicit type coercion. It usually happens when you apply operators to values of different types, like
-1 == null, 2/’5', null + new Date(), or it can be triggered by the surrounding context, like with if (value) {…}, where value is coerced to boolean.
+_Since JavaScript is a weakly-typed language, values can also be converted between different types automatically, and it is called implicit type coercion. It usually happens when you apply operators to values of different types, like
+1 == null, 2/’5', null + new Date(), or it can be triggered by the surrounding context, like with if (value) {…}, where value is coerced to boolean._
 
-One operator that does not trigger implicit type coercion is ===, which is called the strict equality operator. The loose equality operator == on the other hand does both comparison and type coercion if needed.
-
-```
+_One operator that does not trigger implicit type coercion is ===, which is called the strict equality operator. The loose equality operator == on the other hand does both comparison and type coercion if needed_
 
 **Promises**
 
@@ -400,9 +434,7 @@ https://codesandbox.io/s/css-html-flexbox-1jshh?file=/src/index.js
 
 - Arrow functions don’t redefine the value of _this_ within their function body.
 
-
 https://frontarm.com/james-k-nelson/when-to-use-arrow-functions/
-
 
 **custom MAP method**
 
@@ -542,4 +574,7 @@ Some of these features are proxying network requests, push notifications and bac
 Web worker
 
 - Web Workers are a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface. In addition, they can perform I/O using XMLHttpRequest (although the responseXML and channel attributes are always null) or fetch (with no such restrictions).
+
+```
+
 ```
