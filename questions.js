@@ -75,6 +75,41 @@ let x1 = [1, 2, 3].myReduce(function(a, b) {
 });
 // console.log(x1);
 
+// add(1, 2) || add(1)(2)
+//  => outputs the sum of all params
+
+function add(x, y) {
+  if (y !== undefined) {
+    return x + y;
+  } else {
+    return function(y) {
+      return x + y;
+    };
+  }
+}
+
+// add2(1, 2, 3, ...) || add2(1)(2)(3)...
+// => returns the sum of all params
+
+function add2(...arr) {
+  // console.log(arr);
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+// console.log(add2(1, 2, 3, 4));
+
+// const add3 = (a) => (b) => (b ? add3(a + b) : a);
+function add3(a) {
+  return function(b) {
+    return b == null ? a : add3(a + b);
+  };
+}
+console.log(add3(2)(3)(1)(4)());
+
 //nium
 
 let obj1 = {
@@ -146,18 +181,18 @@ console.log(str1.reverse().join(""));
 console.log(filterNonUnique(["a", "c", "b", "d", "c", "b", "e"])); // ["a", "d", "e"]
 console.log(filterNonUnique(["a", "c", "b", "d"])); // ["a", "c", "b", "d"]
 
-function filterNonUnique(arr) {
-  let newArr = [];
-  let count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i] === arr[j]) {
-        count++;
-      }
-    }
-  }
-  return newArr;
-}
+// function filterNonUnique(arr) {
+//   let newArr = [];
+//   let count = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[i] === arr[j]) {
+//         count++;
+//       }
+//     }
+//   }
+//   return newArr;
+// }
 
 //replace space
 replace(/ /g, "");

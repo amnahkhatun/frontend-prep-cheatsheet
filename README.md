@@ -158,6 +158,20 @@ console.log(obj2, "obj2"); // { fname: 'elon', lname: 'khatun', address: { city:
 
 - seal() and freeze() is used to prevent modification of an object.
 
+**Type coercion**
+
+- Type coercion is the process of converting value from one type to another (such as string to number, object to boolean, and so on).
+```
+
+When a developer expresses the intention to convert between types by writing the appropriate code, like Number(value), it’s called explicit type coercion (or type casting).
+
+Since JavaScript is a weakly-typed language, values can also be converted between different types automatically, and it is called implicit type coercion. It usually happens when you apply operators to values of different types, like
+1 == null, 2/’5', null + new Date(), or it can be triggered by the surrounding context, like with if (value) {…}, where value is coerced to boolean.
+
+One operator that does not trigger implicit type coercion is ===, which is called the strict equality operator. The loose equality operator == on the other hand does both comparison and type coercion if needed.
+
+```
+
 **Promises**
 
 https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
