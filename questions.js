@@ -181,18 +181,35 @@ console.log(str1.reverse().join(""));
 console.log(filterNonUnique(["a", "c", "b", "d", "c", "b", "e"])); // ["a", "d", "e"]
 console.log(filterNonUnique(["a", "c", "b", "d"])); // ["a", "c", "b", "d"]
 
-// function filterNonUnique(arr) {
-//   let newArr = [];
-//   let count = 0;
+// let filterNonUnique = arr => {
+//   let mySet = new Set();
 //   for (let i = 0; i < arr.length; i++) {
-//     for (let j = i + 1; j < arr.length; j++) {
-//       if (arr[i] === arr[j]) {
-//         count++;
-//       }
+//     if (!mySet.has(arr[i])) {
+//       mySet.add(arr[i]);
+//     } else {
+//       mySet.delete(arr[i]);
 //     }
 //   }
-//   return newArr;
-// }
+//   return mySet;
+// };
+
+// let filterNonUnique = arr => {
+//   let myMap = new Map();
+//   for (let i = 0; i < arr.length; i++) {
+//     if (!myMap.has(arr[i])) {
+//       myMap.set(arr[i], 1);
+//     } else {
+//       myMap.set(arr[i], myMap.get(arr[i]) + 1);
+//     }
+//   }
+//   let temp = [];
+//   myMap.forEach((value, key) => {
+//     if (value === 1) {
+//       temp.push(key);
+//     }
+//   });
+//   return temp;
+// };
 
 //replace space
 replace(/ /g, "");
@@ -215,13 +232,13 @@ console.log(isPalindrome("level")); // logs 'true'
 console.log(isPalindrome("levels")); // logs 'false'
 console.log(isPalindrome("A car, a man, a maraca")); // logs 'true'
 
-const obj1 = { color: "white", age: 25, weight: true };
-const obj2 = { color: "white", weight: true };
-const obj3 = { color: "white", age: 26, weight: true };
-console.log(matches(obj1, obj2)); // true
-console.log(matches(obj2, obj1)); // false
-console.log(matches(obj3, obj1)); // false
-console.log(matches(obj3, obj2)); // true
+// const obj1 = { color: "white", age: 25, weight: true };
+// const obj2 = { color: "white", weight: true };
+// const obj3 = { color: "white", age: 26, weight: true };
+// console.log(matches(obj1, obj2)); // true
+// console.log(matches(obj2, obj1)); // false
+// console.log(matches(obj3, obj1)); // false
+// console.log(matches(obj3, obj2)); // true
 
 function matches(obj1, obj2) {
   for (let [key, value] of Object.entries(obj1)) {
@@ -319,19 +336,19 @@ console.log(getNames(structure2));
 // expected result: [ 'alpha', 'beta', 'gamma', 'delta', 'epsilon' ]
 // expected result: [ 'alpha', 'beta', 'alpha1', 'beta1', 'gamma1', 'delta1', 'epsilon1','gamma', 'delta', 'epsilon' ]
 
-let obj1 = {
-  fname: "amnah",
-  khatun: "khatun",
-  address: {
-    city: "jsr"
-  }
-};
+// let obj1 = {
+//   fname: "amnah",
+//   khatun: "khatun",
+//   address: {
+//     city: "jsr"
+//   }
+// };
 
-let obj2 = { ...obj1 };
+// let obj2 = { ...obj1 };
 
-obj2.address.city = "mumbai";
-console.log(obj1, "obj1");
-console.log(obj2, "obj2");
+// obj2.address.city = "mumbai";
+// console.log(obj1, "obj1");
+// console.log(obj2, "obj2");
 
 function delay(time) {
   let myPromise = new Promise(function(resolve) {
@@ -421,6 +438,9 @@ var emp1 = Object.create(Employee);
 delete emp1.company;
 console.log(emp1.company); //xyz
 
+// The code above will output `xyz` as output. Here `emp1` object got company as **prototype** property. delete operator doesn't delete prototype property.
+// emp1 object doesn't have company as its own property. you can test it console.log(emp1.hasOwnProperty('company')); //output : false However, we can delete company property directly from Employee object using delete Employee.company or we can also delete from emp1 object using __proto__ property delete emp1.__proto__.company.
+
 console.log(emp1.hasOwnProperty("company")); //false
 var courses = ["JavaScript", "Java", "C", "C++", "Python"];
 delete courses[2];
@@ -474,3 +494,138 @@ const getResult1 = () => {
 /* There is an array. find two elements in array that sum to x. retrun -1 if no such elements exist.
 x = 13;
 [5, 8, 3, 13, 15, 12, 8, 20, 12, 20] */
+
+//signEasy
+(function() {
+  try {
+    throw new Error();
+  } catch (x) {
+    var x = 1,
+      y = 2;
+    console.log(x); // 1
+  }
+  console.log(x); // undefined
+  console.log(y); //2
+})();
+
+let arr = ["above average"];
+//dictionary
+let height = [
+  { value: 24, remark: "above average" },
+  { value: 3, remark: "below average" },
+  { value: 12, remark: "average" },
+  { value: 32, remark: "above average" },
+  { value: 8, remark: "below average" },
+  { value: 12, remark: "average" }
+];
+
+function dummy(height) {
+  let max = 0;
+
+  for (let i = 0; i < height.length; i++) {
+    for (let j = i + 1; j < height.length; j++) {
+      if (height[i]["value"] > height[j]["value"]) {
+        [height[i], height[j]] = [height[j], height[i]];
+      }
+    }
+  }
+
+  return height;
+}
+// dummy(height)
+// console.log(dummy(height))
+
+var myObject = {
+  foo: "bar",
+  func: function() {
+    var self = this;
+    console.log("outer func:  this.foo = " + this.foo); //bar
+    console.log("outer func:  self.foo = " + self.foo); //bar
+    (function() {
+      console.log("inner func:  this.foo = " + this.foo); //undefined
+      console.log("inner func:  self.foo = " + self.foo); //bar
+    })();
+  }
+};
+// myObject.func();
+
+// p:nth-child(2) { color: black; }
+// p:nth-of-type(2) { color: red; }
+// <div>a</div>
+// <p>b</p>
+// <p>c</p>
+
+//o/p -> c will be red, b will be black
+
+// #example1 {
+//   box-sizing: content-box;
+//   width: 300px;
+//   height: 100px;
+//   padding: 30px;
+//   border: 10px solid blue;
+// }
+// #example2 {
+//   box-sizing: border-box;
+//   width: 300px;
+//   height: 100px;
+//   padding: 30px;
+//   border: 10px solid blue;
+// }
+
+//example1 box will be bigger than example2
+
+1 && "ABC"; // ABC
+1 || "ABC"; // 1
+false - "abc"; // NaN
+
+let data = [1970, 0, 1];
+let d = new Date(...data);
+console.log(d); // Thu Jan 01 1970 00:00:00 GMT+0530 (India Standard Time)
+let a = 10;
+function abc() {
+  console.log(a);
+}
+console.log(a); // 10
+
+typeof null; // object
+typeof typeof undefined; // string
+
+var variable1 = 23;
+let variable2 = 89;
+function catchValues() {
+  console.log("1", variable1); //23
+  console.log("2", variable2); //89
+}
+catchValues();
+console.log("3", window.variable1); //23
+console.log("4", window.variable2); //undefined
+
+function foo() {
+  let a = (b = 0);
+  a++;
+  return a;
+}
+foo();
+console.log(typeof a); //undefiend
+console.log(typeof b); //number
+
+const length = 4;
+const numbers = [];
+for (var i = 0; i < length; i++);
+{
+  numbers.push(i + 1);
+}
+console.log(numbers); //[5]
+
+//render hijacking
+//suspense
+//axios interceptor
+//prop of exception
+//diff btwn foreach nd map
+//how does float works
+//content-box nd box-sizing
+//cicd
+//function programming
+//ssr
+//singleton design pattern-implement
+//

@@ -52,13 +52,27 @@ _Italic text here_
 
 ### HTML
 
-| Name                                                                     | Email                                                                                         |
+| div                                                                      | span                                                                                          |
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
 | The <div> tag is a block level element                                   | The <span> tag is an inline element.                                                          |
 | It is best to attach it to a section of a web page.                      | It is best to attach a CSS to a small section of a line in a web page.                        |
 | This tag should be used to wrap a section, for highligting that section. | This tag should be used to wrap any specific word that you want to highlight in your webpage. |
 
 - Elements such as <header>, <nav>, <section>, <article>, <aside>, and <footer> act more or less like <div> elements. They group other elements together into page sections.
+
+- A block-level element is drawn as a block that stretches to fill the full width available to it i.e, the width of its container and will always start on a new line.
+  Elements that are block-level by default: <div>, <img>, <section>, <form>, <nav>.
+
+- Inline elements are drawn where they are defined and only take up space that is absolutely needed. The easiest way to understand how they work is to look at how text flows on a page.
+  Examples of elements that are inline by default: <span>, <b>, <strong>, <a>, <input>.
+
+- Marquee is used for the scrolling text on a web page. It scrolls the image or text up, down, left or right automatically. You should put the text which you want to scroll within the <marquee>……</marquee> tag.
+
+- An iframe is used to display a web page within a web page.
+
+- To create a multicolor text, you can use <font color =”color”> </font> for the specific texts that you want to color.
+
+- <!DOCTYPE html> is used to instruct the web browser about the HTML page.
 
 https://www.freecodecamp.org/news/semantic-html5-elements/#:~:text=Semantic%20HTML%20elements%20are%20those,content%20that%20is%20inside%20them.
 
@@ -78,6 +92,35 @@ https://www.freecodecamp.org/news/semantic-html5-elements/#:~:text=Semantic%20HT
   https://dev.to/prashantandani/quick-guide-to-css-units-px-em-rem-4lic
 
   https://www.youtube.com/watch?v=-GR52czEd-0
+
+| px                                                                  | %                                    | vh / vw                          |
+| ------------------------------------------------------------------- | ------------------------------------ | -------------------------------- |
+| pixel is of absolute width, it will be same no matter where defined | % is based out of its parent element | 1vh = 1/100 of total screen size |
+
+- rem is based put of root element
+- em is based to near parent element
+
+| pseudo class                                 | pseudo elements                                                 |
+| -------------------------------------------- | --------------------------------------------------------------- |
+| :                                            | ::                                                              |
+| active, blank,checked,hover,focus, nth child | before, after, first line, first letter                         |
+| active, blank,checked,hover,focus            | can be aplied to DOM elements with closing tags ie div,span etc |
+
+> specificity
+
+- Start at 0, add 1000 for style attribute, add 100 for each ID, add 10 for each attribute, class or pseudo-class, add 1 for each element name, tag name or pseudo-element.
+
+```
+A: h1
+B: #content h1
+C: <div id="content"><h1 style="color: #ffffff">Heading</h1></div>
+
+The specificity of A is 1 (one element)
+The specificity of B is 101 (one ID reference and one element)
+The specificity of C is 1000 (inline styling)
+
+Since 1 < 101 < 1000, the third rule (C) has a greater level of specificity, and therefore will be applied.
+```
 
 ### JS
 
@@ -114,7 +157,7 @@ const amount = 1_234_500; // 1,234,500
 **How JS works**
 
 1. Everything inside JS happens in Execution context.
-2. JS is synchoronous single threaded language which means JS only execute one line at a time maintaing the order.
+2. JS is synchronous single threaded language which means JS only execute one line at a time maintaing the order.
 3. Inside EC we have two phase
 
 - Memory creation(Variable environment) - allocates memory to all variables and function. Here the special keyword _undefined_ is assigned to variables declared using var keyword. For functions whole code is being assigned. Values are assigned in key value pair.
@@ -125,6 +168,18 @@ const amount = 1_234_500; // 1,234,500
 6.  Global EC is created as soon as program is run.
 7.  As soon as EC is created it is pushed into stack.
 8.  As soon as EC is deleted it is popped out from stack.
+
+**chaining assignments**
+
+```
+let a, b, c;
+
+a = b = c = 2 + 2;
+
+c = 2 + 2;
+b = c;
+a = c;
+```
 
 **copy objects**
 
@@ -490,6 +545,20 @@ https://www.toptal.com/javascript/interview-questions
 - factorial
   `console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10));`
 
+> delete
+
+> The code above will output `5` as output. When we used `delete` operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using `delete` operator.
+> So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index undefined x 1 in chrome and undefined is placed at the index.
+
+```
+Number + Number -> Addition
+Boolean + Number -> Addition
+Boolean + Boolean -> Addition
+Number + String -> Concatenation
+String + Boolean -> Concatenation
+String + String -> Concatenation
+```
+
 ### React
 
 **props vs state**
@@ -560,6 +629,12 @@ Eg of HOC
 - To mimic componentWillUnmount, useEffect may return a function that cleans up after it.
 - We can have mutiple effects in the same component.
 
+> useCallback and useMemo
+
+- useCallback and useMemo both expect a function and an array of dependencies. The difference is that useCallback returns its function when the dependencies change while useMemo calls its function and returns the result.
+
+https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
+
 ### Redux
 
 **core concept of redux**
@@ -589,3 +664,60 @@ Some of these features are proxying network requests, push notifications and bac
 Web worker
 
 - Web Workers are a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface. In addition, they can perform I/O using XMLHttpRequest (although the responseXML and channel attributes are always null) or fetch (with no such restrictions).
+
+`performance.now()`
+
+**singleton design pattern**
+
+- The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
+
+- There are two important points in the traditional definition of Singleton pattern:
+
+- There should be only one instance allowed for a class and
+  We should allow global point of access to that single instance
+
+### DS and ALGO
+
+> Big O Notation
+
+![Screenshot](bigO.png)
+
+- `O(n) --> Linear time`
+- `O(1) --> Constant time`
+- `O(n^2) --> Quadratic time`
+
+**Array**
+
+```
+let arr = ["😀", "😅", "😂", "🤣"];
+arr.push("😍");
+["😀", "😅", "😂", "🤣", "😍"]
+---
+arr.pop();
+["😀", "😅", "😂"]
+---
+arr.shift();
+["😅", "😂", "🤣"]
+---
+arr.unshift("😍");
+["😍", "😀", "😅", "😂", "🤣"]
+```
+
+- push() --> push element at the end --> O(1)
+- pop() --> remove element from the end --> O(1)
+- shift() --> remove element from start --> O(n)
+- unshift() --> add element at the start --> O(n)
+
+_slice does not affect original array_
+`array.slice(start, end)`
+
+```
+let arr = ["😀", "😅", "😂", "🤣"];
+let temp = arr.slice(1,3);
+console.log(arr); --> ["😀", "😅", "😂", "🤣"]
+console.log(temp); --> ["😅", "😂"]
+```
+
+_splice delete or update value in an array_
+
+> `array.splice(start, deleteCount, newElem1, newElem2, ..., newElemN)`
