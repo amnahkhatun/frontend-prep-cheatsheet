@@ -12,6 +12,10 @@
 
 ###### Heading 6
 
+#### Dev card
+
+`<a href="https://app.daily.dev/amnahk"><img src="https://api.daily.dev/devcards/df6571d7c6a3486cb86b81e31d01eb0c.png?r=qxz" width="400" alt="Amnah khatun's Dev Card"/></a>`
+
 Normal text
 
 [Github](https://www.github.com)
