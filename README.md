@@ -1,22 +1,7 @@
 # frontend-notes
 
-# Heading 1
+## [Node notes](./NODE.md)
 
-## Heading 2
-
-### Heading 3
-
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 6
-
-#### Dev card
-
-`<a href="https://app.daily.dev/amnahk"><img src="https://api.daily.dev/devcards/df6571d7c6a3486cb86b81e31d01eb0c.png?r=qxz" width="400" alt="Amnah khatun's Dev Card"/></a>`
-
-Normal text
 
 [Github](https://www.github.com)
 
@@ -125,7 +110,7 @@ The specificity of C is 1000 (inline styling)
 
 Since 1 < 101 < 1000, the third rule (C) has a greater level of specificity, and therefore will be applied.
 ```
-
+- One common use for display: inline-block is to display list items horizontally instead of vertically
 ### JS
 
 **ES2021**
@@ -725,3 +710,5 @@ console.log(temp); --> ["😅", "😂"]
 _splice delete or update value in an array_
 
 > `array.splice(start, deleteCount, newElem1, newElem2, ..., newElemN)`
+
+
