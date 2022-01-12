@@ -1,0 +1,80 @@
+{
+  "premium_variable": "QC",
+  "section": [
+    {
+      "Primary values": [
+        {
+          "type": "dropdown",
+          "label": "Vehicle type",
+          "values": [
+            "private car",
+            "two wheeler",
+            "taxi"
+          ]
+        },
+        {
+          "type": "dropdown",
+          "label": "Insurance type",
+          "values": [
+            "Renewel",
+            "abc",
+            "xyz"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_criteria": [
+        {
+          "type": "header",
+          "label": "",
+          "values": [
+            "Parameter",
+            "Operation",
+            "Value",
+            "Action"
+          ]
+        },
+        {
+          "type": "button",
+          "label": "Add new row",
+          "icon": "https://abc"
+        }
+      ]
+    },
+    {
+      "rule_validity": [
+        {
+          "type": "input",
+          "label": "Date type",
+          "values": "",
+          "placeholder": "enter date type"
+        },
+        {
+          "type": "date",
+          "label": "Risk start from",
+          "values": "",
+          "icon": "https://abc"
+        },
+        {
+          "type": "date",
+          "label": "Risk end to",
+          "values": "",
+          "icon": "https://abc"
+        }
+      ]
+    },
+    {
+      "rule_value": [
+        {
+          "type": "dropdown",
+          "label": "QC flag",
+          "values": [
+            "abc",
+            "xyz"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -517,6 +517,35 @@ String + Boolean -> Concatenation
 String + String -> Concatenation
 ```
 
+- The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand
+```
+const foo = null ?? 'default string';
+console.log(foo);
+// expected output: "default string"
+
+const baz = 0 ?? 42;
+console.log(baz);
+// expected output: 0
+```
+
+- The optional chaining operator (?.) enables you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.
+
+```
+const adventurer = {
+  name: 'Alice',
+  cat: {
+    name: 'Dinah'
+  }
+};
+
+const dogName = adventurer.dog?.name;
+console.log(dogName);
+// expected output: undefined
+
+console.log(adventurer.someNonExistentMethod?.());
+// expected output: undefined
+```
+
 ### React
 
 **props vs state**
@@ -533,6 +562,13 @@ String + String -> Concatenation
 - With default export we can have only one export in a single file.
 - The naming of import is completely independent in default export and we can use any name we like.
 
+- In summary, named exports are used to export multiple values.
+
+- During the import, it will be possible to use the same name to refer to the exported value.
+
+- Default exports are used to export a single value from the file.
+
+- During the import, the name of the value can be different from the exported one.
 **HOC**
 
 https://codesandbox.io/s/a-simple-higher-order-component-forked-lk8gq?file=/index.js
@@ -594,6 +630,10 @@ Eg of HOC
 https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 
 ### Redux
+
+## ![](./images/redux.png)
+## ![](./images/redux2.png)
+## ![](./images/redux3.png)
 
 **core concept of redux**
 
