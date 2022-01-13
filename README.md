@@ -16,13 +16,13 @@
 | It is best to attach it to a section of a web page.                      | It is best to attach a CSS to a small section of a line in a web page.                        |
 | This tag should be used to wrap a section, for highligting that section. | This tag should be used to wrap any specific word that you want to highlight in your webpage. |
 
-- Elements such as <header>, <nav>, <section>, <article>, <aside>, and <footer> act more or less like <div> elements. They group other elements together into page sections.
+- Elements such as header, nav, section, article, aside, and footer act more or less like div elements. They group other elements together into page sections.
 
 - A block-level element is drawn as a block that stretches to fill the full width available to it i.e, the width of its container and will always start on a new line.
-  Elements that are block-level by default: <div>, <img>, <section>, <form>, <nav>.
+  Elements that are block-level by default: div, img, section, form, nav.
 
 - Inline elements are drawn where they are defined and only take up space that is absolutely needed. The easiest way to understand how they work is to look at how text flows on a page.
-  Examples of elements that are inline by default: <span>, <b>, <strong>, <a>, <input>.
+  Examples of elements that are inline by default: span, b, strong, a, input.
 
 - Marquee is used for the scrolling text on a web page. It scrolls the image or text up, down, left or right automatically. You should put the text which you want to scroll within the <marquee>……</marquee> tag.
 
@@ -39,12 +39,12 @@ https://www.freecodecamp.org/news/semantic-html5-elements/#:~:text=Semantic%20HT
 - https://rananitesh99.medium.com/five-css-interview-questions-you-will-be-asked-every-time-72fff69ecde
 
 - Height is the vertical measurement of the container.
-- line-height is the distance from the top of the first line of text to the top of the second. It is relevent when user might resize the text.
+- **line-height** is the distance from the top of the first line of text to the top of the second. It is relevent when user might resize the text.
 - If you wrap the text in a div, give the div a height, and the text grows to be 2 lines (perhaps because it is being viewed on a small screen like a phone) then the text will overlap with the elements below it. On the other hand, if you give the div a line-height and the text grows to 2 lines, the div will expand (assuming you don't also give the div a height).
 
-* display:none means that the tag in question will not appear on the page at all (although you can still interact with it through the dom). There will be no space allocated for it between the other tags.
+* **display:none** means that the tag in question will not appear on the page at all (although you can still interact with it through the dom). There will be no space allocated for it between the other tags.
 
-* visibility:hidden means that unlike display:none, the tag is not visible, but space is allocated for it on the page. The tag is rendered, it just isn't seen on the page.
+* **visibility:hidden** means that unlike display:none, the tag is not visible, but space is allocated for it on the page. The tag is rendered, it just isn't seen on the page.
   http://jsfiddle.net/burhans/ZVgJj/
 
   https://dev.to/prashantandani/quick-guide-to-css-units-px-em-rem-4lic
@@ -80,6 +80,14 @@ The specificity of C is 1000 (inline styling)
 Since 1 < 101 < 1000, the third rule (C) has a greater level of specificity, and therefore will be applied.
 ```
 - One common use for display: inline-block is to display list items horizontally instead of vertically
+
+## ![](./images/positions.png)
+- Compared to display: inline, the major difference is that display: inline-block allows to set a width and height on the element.
+
+- Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
+
+- Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+
 ### JS
 
 **ES2021**
@@ -547,6 +555,9 @@ console.log(adventurer.someNonExistentMethod?.());
 ```
 
 ### React
+
+## ![](./images/lifecycle.png)
+
 
 **props vs state**
 | Props | state |
