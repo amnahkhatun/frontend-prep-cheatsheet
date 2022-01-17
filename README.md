@@ -8,6 +8,14 @@
 
 # Tech round 1
 
+SOLID stands for:
+
+S - Single-responsiblity Principle
+O - Open-closed Principle
+L - Liskov Substitution Principle
+I - Interface Segregation Principle
+D - Dependency Inversion Principle
+
 ### HTML
 
 | div                                                                      | span                                                                                          |
@@ -119,6 +127,10 @@ a && (a = b);
 const amount = 123_4500;  // 123.45 (4-fixed financial)
 const amount = 1_234_500; // 1,234,500
 ```
+
+- spread and rest operator
+- datatypes in JS
+- es2016
 
 **How JS works**
 
@@ -651,6 +663,32 @@ https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 - Single source of truth.
 - State is read only(state can only be changed by dispatching action, and actions are objects).
 - Pure reducers(reducers are pure function which based on the action return the updated state. Reducers cant modify the state they return the updated state object)
+- Reducers are pure functions which specify how the application’s state changes in response to an ACTION. Reducers work by taking in the previous state and action, and then it returns a new state. It determines what sort of update needs to be done based on the type of action, and then returns new values. It returns the previous state as it is if no work needs to be done.
+
+ **advantages of redux
+
+- Predictability of outcome: Since there is always one source of truth, i.e. the store, there is no confusion about how to sync the current state with actions and other parts of the application.
+
+- Maintainability: It is simple to maintain a strict structure and predictable outcome.
+
+- Server-side rendering: To the client-side, You just need to pass the store created on the server. This is helpful for initial render and provides a high-quality user experience as it optimizes the application performance.
+
+- Developer tools: From actions to state changes, developers can track everything going on in the application in real-time.
+
+- Community and ecosystem: Redux has a huge community behind it which makes it even more captivating to use. A large community of talented individuals contribute to the betterment of the library and develop various applications with it.
+
+- Ease of testing: Redux’s code is mostly functions which are small, pure and isolated. This makes the code testable and independent.
+
+- Organization: Redux is precise about how code should be organized, this makes the code more consistent and easier when a team works with it.
+
+
+**Optimization**
+- Memoization (useMemo(), React.memo)
+- React.Purecomponent. React.PureComponent optimizes our components by reducing the number of wasted renders.
+- Lazy loading and suspense
+- useCallback
+- If you render large lists of data, it is recommended that you render only a small portion of the datasets at a time within the visible viewport of a browser, then the next data are rendered as the lists is scrolled, this is called “windowing”.
+
 
 ### Design question and WEB
 
