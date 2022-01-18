@@ -128,9 +128,32 @@ const amount = 123_4500;  // 123.45 (4-fixed financial)
 const amount = 1_234_500; // 1,234,500
 ```
 
-- spread and rest operator
-- datatypes in JS
-- es2016
+**spread and rest operator**
+- spread operator unpacks the elements
+```
+const arr = [1,2,...[3,4]] //expands
+```
+- rest operator packs all the elements into an array
+const [a,b, ...others] = [1,2,3,4,5]
+
+**datatypes in JS**
+- Numbers
+- string
+- boolean
+- undefined
+- null
+- symbol
+- bigInt
+
+**es2016**
+- let, const
+- arrow function
+- for/of
+- classes
+- spread and rest
+- destructing
+- map and set objects
+
 
 **How JS works**
 
@@ -592,6 +615,7 @@ console.log(adventurer.someNonExistentMethod?.());
 - Default exports are used to export a single value from the file.
 
 - During the import, the name of the value can be different from the exported one.
+
 **HOC**
 
 https://codesandbox.io/s/a-simple-higher-order-component-forked-lk8gq?file=/index.js
@@ -665,7 +689,13 @@ https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 - Pure reducers(reducers are pure function which based on the action return the updated state. Reducers cant modify the state they return the updated state object)
 - Reducers are pure functions which specify how the application’s state changes in response to an ACTION. Reducers work by taking in the previous state and action, and then it returns a new state. It determines what sort of update needs to be done based on the type of action, and then returns new values. It returns the previous state as it is if no work needs to be done.
 
- **advantages of redux
+**error boundaries**
+
+- Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+
+- A class component becomes an error boundary if it defines either (or both) of the lifecycle methods static getDerivedStateFromError() or componentDidCatch(). Use static getDerivedStateFromError() to render a fallback UI after an error has been thrown. Use componentDidCatch() to log error information.
+
+ **advantages of redux**
 
 - Predictability of outcome: Since there is always one source of truth, i.e. the store, there is no confusion about how to sync the current state with actions and other parts of the application.
 
