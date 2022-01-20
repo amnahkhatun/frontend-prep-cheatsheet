@@ -18,6 +18,9 @@ D - Dependency Inversion Principle
 
 ### HTML
 
+- DOCTYPE is an abbreviation for Document Type. A DOCTYPE is always associated to a DTD - for Document Type Definition.
+- For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects. Once a user agent has recognized a correct DOCTYPE, it will trigger the no-quirks mode matching this DOCTYPE for reading the document. If a user agent doesn't recognize a correct DOCTYPE, it will trigger the quirks mode.
+
 | div                                                                      | span                                                                                          |
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
 | The <div> tag is a block level element                                   | The <span> tag is an inline element.                                                          |
