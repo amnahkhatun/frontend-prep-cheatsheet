@@ -4,6 +4,14 @@
 
 ## ![Js Engine](./images/jsEngine.png)
 
+- [Web page](#web-page)
+- [HTML](#html)
+- [CSS](#css)
+- [JS](#js)
+- [React](#react)
+- [Redux](#redux)
+- [Design question and WEB](#design)
+- [DS and ALGO](#dsandalgo)
 
 
 # Tech round 1
@@ -29,12 +37,6 @@ D - Dependency Inversion Principle
 
 - Elements such as header, nav, section, article, aside, and footer act more or less like div elements. They group other elements together into page sections.
 
-- A block-level element is drawn as a block that stretches to fill the full width available to it i.e, the width of its container and will always start on a new line.
-  Elements that are block-level by default: div, img, section, form, nav.
-
-- Inline elements are drawn where they are defined and only take up space that is absolutely needed. The easiest way to understand how they work is to look at how text flows on a page.
-  Examples of elements that are inline by default: span, b, strong, a, input.
-
 - Marquee is used for the scrolling text on a web page. It scrolls the image or text up, down, left or right automatically. You should put the text which you want to scroll within the <marquee>……</marquee> tag.
 
 - An iframe is used to display a web page within a web page.
@@ -48,6 +50,23 @@ https://www.freecodecamp.org/news/semantic-html5-elements/#:~:text=Semantic%20HT
 ### CSS
 
 - https://rananitesh99.medium.com/five-css-interview-questions-you-will-be-asked-every-time-72fff69ecde
+
+
+- [Inline vs block element](https://www.smashingmagazine.com/2010/06/the-principles-of-cross-browser-css-coding/#understand-the-css-box-model)
+
+- A block-level element is drawn as a block that stretches to fill the full width available to it i.e, the width of its container and will always start on a new line.
+  Elements that are block-level by default: div, img, section, form, nav.
+
+- Inline elements are drawn where they are defined and only take up space that is absolutely needed. The easiest way to understand how they work is to look at how text flows on a page.
+  Examples of elements that are inline by default: span, b, strong, a, input.
+
+## ![](./images/cssprops.png)
+
+- The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.
+
+- content-box	Default. The width and height properties (and min/max properties) includes only the content. Border and padding are not included. 
+- border-box	The width and height properties (and min/max properties) includes content, padding and border.
+eg if width is 300px in border-box it will not add padding and margin
 
 - Height is the vertical measurement of the container.
 - **line-height** is the distance from the top of the first line of text to the top of the second. It is relevent when user might resize the text.
@@ -172,6 +191,8 @@ const [a,b, ...others] = [1,2,3,4,5]
 6.  Global EC is created as soon as program is run.
 7.  As soon as EC is created it is pushed into stack.
 8.  As soon as EC is deleted it is popped out from stack.
+rupa.yarrathota@vogo.in
+yrupab9@gmail.com
 
 **chaining assignments**
 
@@ -383,7 +404,26 @@ console.log('triggered)
 
 ```
 
-##### Event delegation
+**This keyword**
+- If the new keyword is used when calling the function, this inside the function is a brand new object.
+- If apply, call, or bind are used to call/create a function, this inside the function is the object that is passed in as the argument.
+- If a function is called as a method, such as obj.method() — this is the object that the function is a property of.
+- If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the global object. In a browser, it is the window object. If in strict mode ('use strict'), this will be undefined instead of the global object.
+- If multiple of the above rules apply, the rule that is higher wins and will set the this value.
+- If the function is an ES2015 arrow function, it ignores all the rules above and receives the this value of its surrounding scope at the time it is created.
+For an in-depth explanation, do check out his article on Medium.
+
+- ES6 allows you to use arrow functions which uses the enclosing lexical scope. This is usually convenient, but does prevent the caller from controlling context via .call or .apply—the consequences being that a library such as jQuery will not properly bind this in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
+
+**undefined vs null**
+
+- A variable that is undefined is a variable that has been declared, but not assigned a value. It is of type undefined. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of undefined. To check for it, compare using the strict equality (===) operator or typeof which will give the 'undefined' string. Note that you should not be using the abstract equality operator to check, as it will also return true if the value is null.
+
+- A variable that is null will have been explicitly assigned to the null value. It represents no value and is different from undefined in the sense that it has been explicitly assigned. To check for null, simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (==) to check, as it will also return true if the value is undefined.
+
+
+
+**Event delegation**
 
 - Event delegation takes advantage of event propagation and so, allows the event listener to be set on a parent element.
 - The blur, focus, load and unload events don’t bubble like other events.
@@ -455,7 +495,9 @@ let addThree = add.bind(this,3)
 ```
 
 **Hoisting**
-Hoisting is a phenomenon where we can access variables and functions before initializig it.
+- Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the var keyword will have their declaration "moved" up to the top of their module/function-level scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.
+
+- Variables declared via let and const are hoisted as well. However, unlike var and function, they are not initialized and accessing them before the declaration will result in a ReferenceError exception. The variable is in a "temporal dead zone" from the start of the block until the declaration is processed.
 
 ```
 
@@ -491,7 +533,8 @@ let & const are stored in different memory location
 
 - closure is function bundled together with its lexical environment.
 - functions even after being returned remember their scope because of closure.
-- function remembers the reference to the variable.
+- function remembers the reference to the variable. 
+- A closure is the combination of a function and the lexical environment within which that function was declared.
 
 Use of closure
 
@@ -509,6 +552,12 @@ https://codesandbox.io/s/css-html-flexbox-1jshh?file=/src/index.js
 - Arrow functions don’t redefine the value of _this_ within their function body.
 
 https://frontarm.com/james-k-nelson/when-to-use-arrow-functions/
+
+**== vs ===**
+- == is the abstract equality operator while === is the strict equality operator. The == operator will compare for equality after doing any necessary type conversions. The === operator will not do type conversion, so if two values are not the same type === will simply return false. When using ==, funky things can happen, such as:
+
+**same origin policy**
+- The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
 
 **custom MAP method**
 
@@ -803,3 +852,44 @@ _splice delete or update value in an array_
 > `array.splice(start, deleteCount, newElem1, newElem2, ..., newElemN)`
 
 
+## Web page
+
+**DNS**
+
+- A Domain Name System (DNS) translates a domain name such as www.example.com to an IP address.
+- A time-to-live (TTL) determines how long content is cached
+- DNS is hierarchical, with a few authoritative servers at the top level. Your router or ISP provides information about which DNS server(s) to contact when doing a lookup. Lower level DNS servers cache mappings, which could become stale due to DNS propagation delays. DNS results can also be cached by your browser or OS for a certain period of time, determined by the time to live (TTL).
+
+**CDN**
+
+- A content delivery network (CDN) is a globally distributed network of proxy servers, serving content from locations closer to the user. Generally, static files such as HTML/CSS/JS, photos, and videos are served from CDN, although some CDNs such as Amazon's CloudFront support dynamic content. The site's DNS resolution will tell clients which server to contact.
+
+- Serving content from CDNs can significantly improve performance in two ways:
+
+- Users receive content from data centers close to them
+Your servers do not have to serve requests that the CDN fulfills
+
+**load balancer**
+
+- Load balancers distribute incoming client requests to computing resources such as application servers and databases. In each case, the load balancer returns the response from the computing resource to the appropriate client. Load balancers are effective at:
+
+- Preventing requests from going to unhealthy servers
+- Preventing overloading resources
+- Helping to eliminate a single point of failure
+
+**Microservices**
+
+- Related to this discussion are microservices, which can be described as a suite of independently deployable, small, modular services. Each service runs a unique process and communicates through a well-defined, lightweight mechanism to serve a business goal.
+
+**RDBMS**
+
+A relational database like SQL is a collection of data items organized in tables.
+
+ACID is a set of properties of relational database transactions.
+
+- Atomicity - Each transaction is all or nothing
+- Consistency - Any transaction will bring the database from one valid state to another
+- Isolation - Executing transactions concurrently has the same results as if the transactions were executed serially
+- Durability - Once a transaction has been committed, it will remain so
+
+There are many techniques to scale a relational database: master-slave replication, master-master replication, federation, sharding, denormalization, and SQL tuning.
