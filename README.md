@@ -4,6 +4,9 @@
 
 ## ![Js Engine](./images/jsEngine.png)
 
+## ![How page loads](./images/webpageload.png)
+
+
 - [Web page](#web-page)
 - [HTML](#html)
 - [CSS](#css)
@@ -176,6 +179,27 @@ const [a,b, ...others] = [1,2,3,4,5]
 - destructing
 - map and set objects
 
+
+- Array destructing
+```
+// Variable assignment.
+const foo = ['one', 'two', 'three'];
+
+const [one, two, three] = foo;
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
+```
+
+- Object destructing
+```
+// Variable assignment.
+const o = {p: 42, q: true};
+const {p, q} = o;
+
+console.log(p); // 42
+console.log(q); // true
+```
 
 **How JS works**
 
@@ -893,3 +917,19 @@ ACID is a set of properties of relational database transactions.
 - Durability - Once a transaction has been committed, it will remain so
 
 There are many techniques to scale a relational database: master-slave replication, master-master replication, federation, sharding, denormalization, and SQL tuning.
+
+- TCP is a connection-oriented protocol over an IP network. Connection is established and terminated using a handshake. All packets sent are guaranteed to reach the destination in the original order and without corruption
+
+- TCP is useful for applications that require high reliability but are less time critical. Some examples include web servers, database info, SMTP, FTP, and SSH.
+
+- UDP is connectionless. Datagrams (analogous to packets) are guaranteed only at the datagram level. Datagrams might reach their destination out of order or not at all. UDP does not support congestion control. Without the guarantees that TCP support, UDP is generally more efficient.
+
+- UDP can broadcast, sending datagrams to all devices on the subnet. This is useful with DHCP because the client has not yet received an IP address, thus preventing a way for TCP to stream without the IP address.
+
+- UDP is less reliable but works well in real time use cases such as VoIP, video chat, streaming, and realtime multiplayer games.
+
+Use UDP over TCP when:
+
+- You need the lowest latency
+- Late data is worse than loss of data
+- You want to implement your own error correction
