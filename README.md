@@ -933,3 +933,80 @@ Use UDP over TCP when:
 - You need the lowest latency
 - Late data is worse than loss of data
 - You want to implement your own error correction
+
+**Mixins**
+
+- a mixin is a class containing methods that can be used by other classes without a need to inherit from it.
+- Some other languages allow multiple inheritance. JavaScript does not support multiple inheritance, but mixins can be implemented by copying methods into prototype.
+
+**Factory function**
+
+- https://www.javascripttutorial.net/javascript-factory-functions/
+- The Object.create() method creates a new object using an existing object as the prototype of the new object
+- A factory function is a function that returns a new object.
+- Use Object.create() to create an object using an existing object as a prototype.
+- By using the factory function, you create any number of the person objects without duplicating code.
+```
+function createPerson(firstName, lastName) {
+  return {
+    firstName: firstName,
+    lastName: lastName,
+    getFullName() {
+      return firstName + ' ' + lastName;
+    },
+  };
+}
+
+let person1 = createPerson('John', 'Doe');
+let person2 = createPerson('Jane', 'Doe');
+
+console.log(person1.getFullName());
+console.log(person2.getFullName());
+```
+
+**Singleton pattern**
+
+- singleton pattern, it is, at its core, a design pattern that restricts the instantiation of a class to one object. Usually, the goal is to manage global application state. 
+- https://www.sitepoint.com/javascript-design-patterns-singleton/
+
+- This way is slightly more verbose than using an object literal, and our example is so simple that we don’t really see any benefits from using a class (though it will come in handy in the final example).
+
+- One benefit to the class route that might not be obvious is that, if this is your front-end code, and your back end is written in C# or Java, you can employ a lot of the same design patterns in your client-side application as you do on the back end, and increase your team’s efficiency (if you’re small and people are working full-stack). Sounds soft and hard to measure, but I’ve experienced it firsthand working on a C# application with a React front end, and the benefit is real.
+
+- It should be noted that, technically, the immutability and non-overridability of the singleton using both of these patterns can be subverted by the motivated provocateur. An object literal can be copied, even if it itself is const, by using Object.assign. And when we export an instance of a class, though we aren’t directly exposing the class itself to the consuming code, the constructor of any instance is available in JavaScript and can be invoked to create new instances. Obviously, though, that all takes at least a little bit of effort, and hopefully your fellow devs aren’t so insistent on violating the singleton pattern.
+
+
+
+```
+class UserStore {
+  constructor(){
+    this._data = [];
+  }
+
+  add(item){
+    this._data.push(item);
+  }
+
+  get(id){
+    return this._data.find(d => d.id === id);
+  }
+}
+
+const instance = new UserStore();
+Object.freeze(instance);
+
+export default instance;
+```
+
+**facade pattern**
+
+- https://www.educative.io/collection/page/5429798910296064/5725579815944192/6046230397321216
+- a facade structural pattern provides a simpler interface that hides the complex functionalities of a system. This is widely used in JavaScript libraries like jQuery.
+
+- The facade pattern allows you to hide all the messy logic from the client and only display the clear and easy to use interface to them. This allows them to interact with an API easily in a less error-prone way and without accessing the inner workings directly.
+
+## ![facade pattern](./images/facade.png)
+
+- The facade pattern is used to simplify a client’s interaction with a system. So it can be used when an application has a large and complex underlying code that the client does not need to see.
+
+- It can also be used when you want to interact with the methods present in a library without knowing the processing that happens in the background. An example can be of the JavaScript libraries such as jQuery.
