@@ -7,7 +7,7 @@
 ## ![How page loads](./images/webpageload.png)
 
 
-- [Web page](#web-page)
+- [WEB](#web)
 - [HTML](#html)
 - [CSS](#css)
 - [JS](#js)
@@ -15,6 +15,7 @@
 - [Redux](#redux)
 - [Design question and WEB](#design)
 - [DS and ALGO](#dsandalgo)
+- [Seo](#seo)
 
 
 # Tech round 1
@@ -120,6 +121,55 @@ Since 1 < 101 < 1000, the third rule (C) has a greater level of specificity, and
 - Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
 
 - Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+
+**scss vs css**
+
+- Using SCSS we can declare variables
+```
+$theme_gray: gray;
+$theme_black: black;
+$theme_yellow: yellow;
+$theme_white: white;
+```
+
+- SCSS uses nested syntax
+```
+.myclass {
+    background-color: $theme_white;
+    h1 {
+        color: $theme_gray;
+        text-align: center;
+    }
+    p {
+        color: $theme_black;
+    }
+}
+
+Replaces this:
+
+.myclass {
+    background-color: white;
+}
+.myclass h1 {
+    color: gray;
+    text-align: center;
+}
+.myclass p {
+    color: black;
+}
+```
+- SCSS has mixins
+```
+@mixin set-text-style($family:'Tahoma', $weight: 500, $style: normal, $color: black) {
+    font-family: $family , 'Arial', 'Helvetica', sans-serif;
+    font-style: $style;
+    font-weight: $weight;
+    color: $color;
+}
+h2 {
+    @include set-text-style('Roboto', 600, 'italic', blue);
+}
+```
 
 ### JS
 
@@ -665,6 +715,30 @@ console.log(adventurer.someNonExistentMethod?.());
 // expected output: undefined
 ```
 
+**Cookies**
+
+- Has different expiration dates (both the server or client can set up expiration date)
+- The Client can't access the Cookies if the HttpOnly flag is true
+- Has SSL Support
+- Data are transferred on each HTTP request
+- 4kb limit
+
+**Local Storage**
+
+- Has no expiration date
+- Client only
+- Has no SSL support
+- Data are not transferred on each HTTP request
+- 5 mb limit (check with the browser)
+
+**Session Storage**
+
+- Data is gone when you close the browser tab
+- Client only
+- Has no SSL support
+- Data are not transferred on each HTTP request
+- 5-10 mb limit (check with the browser)
+
 ### React
 
 ## ![](./images/lifecycle.png)
@@ -796,7 +870,7 @@ https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 - If you render large lists of data, it is recommended that you render only a small portion of the datasets at a time within the visible viewport of a browser, then the next data are rendered as the lists is scrolled, this is called “windowing”.
 
 
-### Design question and WEB
+## Design question and WEB
 
 **Server sent events(SSE)**
 
@@ -808,17 +882,6 @@ https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-th
 
 - HTTP can run on the top of any reliable connection-oriented protocol such as TCP, SCTP. When a client sends HTTP request to the server, a TCP connection is open between the client and server and after getting the response the TCP connection gets terminated, each HTTP request open separate TCP connection to the server, for e.g. if client send 10 requests to the server the 10 separate HTTP connection will be opened. and get closed after getting the response/fallback.
 
-Service worker
-
-- In simple and plain words, it’s a script that browser runs in the background and has whatsoever no relation with web pages or the DOM, and provide out of the box features. It also helps you cache your assets and other files so that when the user is offline or on slow network.
-
-Some of these features are proxying network requests, push notifications and background sync. Service workers ensure that the user has a rich offline experience.
-
-Web worker
-
-- Web Workers are a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface. In addition, they can perform I/O using XMLHttpRequest (although the responseXML and channel attributes are always null) or fetch (with no such restrictions).
-
-`performance.now()`
 
 **singleton design pattern**
 
@@ -829,7 +892,7 @@ Web worker
 - There should be only one instance allowed for a class and
   We should allow global point of access to that single instance
 
-### DS and ALGO
+## DS and ALGO
 
 > Big O Notation
 
@@ -876,8 +939,64 @@ _splice delete or update value in an array_
 > `array.splice(start, deleteCount, newElem1, newElem2, ..., newElemN)`
 
 
-## Web page
+## WEB
 
+
+When you type a web address into your browser (for our analogy that's like walking to the shop):
+
+1. The browser goes to the DNS server, and finds the real address of the server that the website lives on (you find the address of the shop).
+2. The browser sends an HTTP request message to the server, asking it to send a copy of the website to the client (you go to the shop and order your goods). This message, and all other data sent between the client and the server, is sent across your internet connection using TCP/IP.
+3. If the server approves the client's request, the server sends the client a "200 OK" message, which means "Of course you can look at that website! Here it is", and then starts sending the website's files to the browser as a series of small chunks called data packets (the shop gives you your goods, and you bring them back to your house).
+4. The browser assembles the small chunks into a complete web page and displays it to you (the goods arrive at your door — new shiny stuff, awesome!).
+
+## ![How page loads](./images/webpageload.png)
+
+1. **DNS lookup** The first step of navigating to a web page is finding where the assets for that page are located. If you navigate to https://example.com, the HTML page is located on the server with IP address of 93.184.216.34.
+2. **TCP handshake** Once the IP address is known, the browser sets up a connection to the server via a TCP three-way handshake.
+    - TCP's three way handshaking technique is often referred to as "SYN-SYN-ACK"—or more accurately SYN, SYN-ACK, ACK—because there are three messages transmitted by TCP to negotiate and start a TCP session between two computers. Yes, this means three more messages back and forth between each server, and the request has yet to be made.
+3. **TLS negotiation** For secure connections established over HTTPS, another "handshake" is required. This handshake, or rather the TLS negotiation, determines which cipher will be used to encrypt the communication, verifies the server, and establishes that a secure connection is in place before beginning the actual transfer of data. This requires three more round trips to the server before the request for content is actually sent.
+4. **Response** Once we have an established connection to a web server, the browser sends an initial HTTP GET request on behalf of the user, which for websites is most often an HTML file.
+    - This response for this initial request contains the first byte of data received. Time to First Byte (TTFB) is the time between when the user made the request—say by clicking on a link—and the receipt of this first packet of HTML. The first chunk of content is usually 14kb of data.
+    - In TCP slow start, after receipt of the initial packet, the server doubles the size of the next packet to around 28Kb. Subsequent packets increase in size until a predetermined threshold is reached, or congestion is experienced.
+5. **Parsing** Once the browser receives the first chunk of data, it can begin parsing the information received. Parsing is the step the browser takes to turn the data it receives over the network into the DOM and CSSOM, which is used by the renderer to paint a page to the screen.
+    - Critical rendering path
+        - DOM
+            - preload scanner
+            - While the browser builds the DOM tree, this process occupies the main thread. As this happens, the preload scanner will parse through the content available and request high priority resources like CSS, JavaScript, and web fonts. Thanks to the preload scanner, we don't have to wait until the parser finds a reference to an external resource to request it. It will retrieve resources in the background so that by the time the main HTML parser reaches requested assets, they may possibly already be in flight, or have been downloaded. The optimizations the preload scanner provides reduce blockages.
+            - while the main thread is parsing the HTML and CSS, the preload scanner will find the scripts and image, and start downloading them as well. To ensure the script doesn't block the process, add the async attribute, or the defer attribute if JavaScript parsing and execution order is important.
+        - CSSOM
+        - render tree
+            - Rendering steps include style, layout, paint and, in some cases, compositing. The CSSOM and DOM trees created in the parsing step are combined into a render tree which is then used to compute the layout of every visible element, which is then painted to the screen.
+        - layout
+        - paint
+            - The last step in the critical rendering path is painting the individual nodes to the screen, the first occurrence of which is called the first meaningful paint. In the painting or rasterization phase, the browser converts each box calculated in the layout phase to actual pixels on the screen. Painting involves drawing every visual part of an element to the screen, including text, colors, borders, shadows, and replaced elements like buttons and images. The browser needs to do this super quickly.
+   
+- Time to Interactive (TTI) is the measurement of how long it took from that first request which led to the DNS lookup and SSL connection to when the page is interactive -- interactive being the point in time after the First Contentful Paint when the page responds to user interactions within 50ms.
+- Browser initiate the request every time it finds limks to external resources in stylesheet, scripts etc.
+
+-----------------------
+
+- That changed around 2008 when IE introduced something they called “the lookahead downloader”. It was a way to keep downloading the files that were needed while the synchronous script was being executed. Firefox, Chrome and Safari soon followed, and today most browsers use this technique under different names. Chrome and Safari have “the preload scanner” and Firefox – the speculative parser.
+
+- The **defer** and **async** attributes were introduced to give developers a way to tell the browser which scripts to handle asynchronously.
+
+- Both of these attributes tell the browser that it may go on parsing the HTML while loading the script “in background”, and then execute the script after it loads. This way, script downloads don’t block DOM construction and page rendering. Result: the user can see the page before all scripts have finished loading.
+
+- you can now use `<link rel="preload">` to communicate to the browser that you want to load them as soon as possible.
+- preload has other advantages too. Using as to specify the type of content to be preloaded allows the browser to:
+
+- Prioritize resource loading more accurately.
+- Store in the cache for future requests, reusing the resource if appropriate.
+- Apply the correct content security policy to the resource.
+- Set the correct Accept request headers for it.
+
+- https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/
+
+- If your application renders long lists of data (hundreds or thousands of rows), we recommend using a technique known as **“windowing”**. This technique only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created.
+
+- react-window and react-virtualized are popular windowing libraries. They provide several reusable components for displaying lists, grids, and tabular data.
+
+- Windowing or List virtualization is a concept of only rendering or write the visible portion in the current “ window ” to the DOM. The number of items that rendered at first time are smaller than the original one
 **DNS**
 
 - A Domain Name System (DNS) translates a domain name such as www.example.com to an IP address.
@@ -892,6 +1011,14 @@ _splice delete or update value in an array_
 
 - Users receive content from data centers close to them
 Your servers do not have to serve requests that the CDN fulfills
+
+Benefits of CDN
+- Improving website load times
+- Reducing bandwidth costs 
+- Increasing content availability and redundancy
+- Improving website security
+
+https://www.cloudflare.com/en-gb/learning/cdn/what-is-a-cdn/
 
 **load balancer**
 
@@ -1010,3 +1137,95 @@ export default instance;
 - The facade pattern is used to simplify a client’s interaction with a system. So it can be used when an application has a large and complex underlying code that the client does not need to see.
 
 - It can also be used when you want to interact with the methods present in a library without knowing the processing that happens in the background. An example can be of the JavaScript libraries such as jQuery.
+
+
+**SSL pinning**
+
+- SSL pinning stands for Secure Socket Layer
+- This connection ensures that all data passed between the web server and browsers remain private and integral
+- SSL pinning allows the application to only trust the valid or pre-defined certificate or Public Key. The application developer uses SSL pinning technique as an additional security layer for application traffic.
+- SSL Pinning is a technique that we use in the client side to avoid man-in-the-middle attack by validating the server certificates again even after SSL handshaking.
+
+How SSL works?
+- Client machine sends a connection request to server, server listens the request.
+- Server gives response including public key and certificate.
+- Client checks the certificate and sends a encrypted key to server.
+- Server decrypt the key and sends encrypted data back to the client machine.
+- Client receives and decrypt the encrypted data.
+
+**An HTTP method is idempotent if an identical request can be made once or several times in a row with the same effect while leaving the server in the same state. In other words, an idempotent method should not have any side-effects (except for keeping statistics). Implemented correctly, the GET, HEAD, PUT, and DELETE methods are idempotent, but not the POST method. All safe methods are also idempotent.**
+
+**HTTP codes**
+
+- 1xx – Informational responses
+- 2xx – Success
+- 3xx – Redirection - These are used when the server found the requested resource somewhere else.
+- 4xx – Client errors - These are used when the server received a wrong request
+- 5xx – Server errors - When something wrong happens on the server, not because of client request data, but because of server state itself
+
+
+**Service worker**
+
+- Rich offline experiences, periodic background syncs, push notifications—functionality that would normally require a native application—are coming to the web. Service workers provide the technical foundation that all these features rely on.
+
+- In simple and plain words, it’s a script that browser runs in the background and has whatsoever no relation with web pages or the DOM, and provide out of the box features. It also helps you cache your assets and other files so that when the user is offline or on slow network.
+
+- it therefore has no DOM access, and runs on a different thread to the main JavaScript that powers your app, so it is non-blocking. It is designed to be fully async; as a consequence, APIs such as synchronous XHR and Web Storage can't be used inside a service worker.
+
+- Service workers only run over HTTPS, for security reasons. Having modified network requests, wide open to man in the middle attacks would be really bad
+
+- [service worker important link](https://web.dev/learn/pwa/service-workers/)
+
+- ![Service worker](./images/sw.jpeg)
+
+-  the Service Worker is a type of Web Worker
+
+##### Usage of service worker
+
+- Push notifications — allow users to opt-in to timely updates from web apps.
+- Background sync — allows you to defer actions until the user has stable connectivity. This way, you can make sure that whatever the user wants to send, is actually sent.
+- Periodic sync (future) — API that provides functionality for managing periodic background synchronization.
+- Geofencing (future) — you can define parameters, also referred to as geofences which surround the areas of interest. The web app gets a notification when the device crosses a geofence, which allows you to provide useful experience based on the geography of the user.
+
+##### Lifecycle of a Service Worker
+
+The lifecycle of a service worker is completely separated from your web page one. It consists of the following phases:
+- Download
+- Installation
+- Activation
+
+**Web worker**
+
+- Web Workers are a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface. In addition, they can perform I/O using XMLHttpRequest (although the responseXML and channel attributes are always null) or fetch (with no such restrictions).
+
+`performance.now()` 
+
+- Web Workers are in-browser threads that can be used to execute JavaScript code without blocking the event loop.
+
+- Web Workers are not part of JavaScript, they’re a browser feature which can be accessed through JavaScript
+
+https://blog.sessionstack.com/how-javascript-works-the-building-blocks-of-web-workers-5-cases-when-you-should-use-them-a547c0757f6a
+
+**webpack**
+
+- webpack is a static module bundler for modern JavaScript applications.
+- Webpack is a bundler that uses a dependency graph to bundle our code and assets (incuding static assets such as images) into a ‘bundle’ which we can then deploy.
+
+**websocket**
+- The WebSocket API is an advanced technology that makes it possible to open a two-way interactive communication session between the user's browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
+
+- used in chat applications
+
+## SEO
+
+- The `<meta>` tag defines metadata about an HTML document. Metadata is data (information) about data.
+
+- `<meta>` tags always go inside the <head> element, and are typically used to specify character set, page description, keywords, author of the document, and viewport settings.
+
+- You can use the viewport meta tag to display the web pages correctly on mobile devices.
+- Without a viewport meta tag, mobile browsers render the web pages at typical desktop screen widths, and then scale it down to fit the mobile screen. As a result, it requires pinch-and-zoom to view the web page properly in mobile devices, which is very inconvenient.
+
+- They let you tell Google which version of a page they should index and rank, and where to consolidate any “link equity.”
+
+- A canonical tag (rel=“canonical”) is a snippet of HTML code that defines the main version for duplicate, near-duplicate and similar pages. In other words, if you have the same or similar content available under different URLs, you can use canonical tags to specify which version is the main one and thus, should be indexed.
+
