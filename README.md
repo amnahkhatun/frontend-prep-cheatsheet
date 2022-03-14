@@ -206,12 +206,15 @@ const amount = 1_234_500; // 1,234,500
 ```
 
 **spread and rest operator**
+```
 - spread operator unpacks the elements
-```
+
 const arr = [1,2,...[3,4]] //expands
-```
+
 - rest operator packs all the elements into an array
 const [a,b, ...others] = [1,2,3,4,5]
+```
+
 
 **datatypes in JS**
 - Numbers
