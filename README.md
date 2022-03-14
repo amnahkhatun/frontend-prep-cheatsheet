@@ -7,7 +7,6 @@
 ## ![How page loads](./images/webpageload.png)
 
 
-- [WEB](#web)
 - [HTML](#html)
 - [CSS](#css)
 - [JS](#js)
@@ -372,7 +371,7 @@ https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/
 _When a developer expresses the intention to convert between types by writing the appropriate code, like Number(value), it’s called explicit type coercion (or type casting)._
 
 _Since JavaScript is a weakly-typed language, values can also be converted between different types automatically, and it is called implicit type coercion. It usually happens when you apply operators to values of different types, like
-1 == null, 2/’5', null + new Date(), or it can be triggered by the surrounding context, like with if (value) {…}, where value is coerced to boolean._
+`1 == null, 2/’5', null + new Date(),` or it can be triggered by the surrounding context, like with `if (value) {…}`, where value is coerced to boolean._
 
 _One operator that does not trigger implicit type coercion is ===, which is called the strict equality operator. The loose equality operator == on the other hand does both comparison and type coercion if needed_
 
@@ -402,11 +401,11 @@ Callback hell
 ```
 
 firstRequest(function(response) {
-secondRequest(response, function(nextResponse) {
-thirdRequest(nextResponse, function(finalResponse) {
-console.log('Final response: ' + finalResponse);
-}, failureCallback);
-}, failureCallback);
+  secondRequest(response, function(nextResponse) {
+    thirdRequest(nextResponse, function(finalResponse) {
+      console.log('Final response: ' + finalResponse);
+    }, failureCallback);
+  }, failureCallback);
 }, failureCallback);
 
 ```
@@ -417,11 +416,11 @@ with promise
 
 firstRequest()
 .then(function(response) {
-return secondRequest(response);
+  return secondRequest(response);
 }).then(function(nextResponse) {
-return thirdRequest(nextResponse);
+  return thirdRequest(nextResponse);
 }).then(function(finalResponse) {
-console.log('Final response: ' + finalResponse);
+  console.log('Final response: ' + finalResponse);
 }).catch(failureCallback);
 
 ```
@@ -433,10 +432,10 @@ Promise with reject and resolve
 let myPromise = new Promise((resolve, reject) => {
 let condition;
 if(condition is met){
-resolve('Success')
-} else {
-reject ('Rejection')
-}
+    resolve('Success')
+      } else {
+        reject ('Rejection')
+      }
 })
 
 myPromise.then(
@@ -488,7 +487,6 @@ console.log('triggered)
 - If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the global object. In a browser, it is the window object. If in strict mode ('use strict'), this will be undefined instead of the global object.
 - If multiple of the above rules apply, the rule that is higher wins and will set the this value.
 - If the function is an ES2015 arrow function, it ignores all the rules above and receives the this value of its surrounding scope at the time it is created.
-For an in-depth explanation, do check out his article on Medium.
 
 - ES6 allows you to use arrow functions which uses the enclosing lexical scope. This is usually convenient, but does prevent the caller from controlling context via .call or .apply—the consequences being that a library such as jQuery will not properly bind this in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
 
@@ -588,6 +586,7 @@ Lexical environment = local memory + lexical env of its parent
 **Scope**
 
 var - refers to same memory location
+``` 
 var b = 100;
 {
 var b =10;
@@ -602,6 +601,7 @@ let b = 20;
 console.log(b) ==> 20 [Block memory space]
 }
 console.log(b) ==> 200 [script memory space]
+```
 let & const are stored in different memory location
 
 ![Screenshot](./images/scope_chain.jpeg)
@@ -631,7 +631,7 @@ https://codesandbox.io/s/css-html-flexbox-1jshh?file=/src/index.js
 https://frontarm.com/james-k-nelson/when-to-use-arrow-functions/
 
 **== vs ===**
-- == is the abstract equality operator while === is the strict equality operator. The == operator will compare for equality after doing any necessary type conversions. The === operator will not do type conversion, so if two values are not the same type === will simply return false. When using ==, funky things can happen, such as:
+- == is the abstract equality operator while === is the strict equality operator. The == operator will compare for equality after doing any necessary type conversions. The === operator will not do type conversion, so if two values are not the same type === will simply return false.
 
 **same origin policy**
 - The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
