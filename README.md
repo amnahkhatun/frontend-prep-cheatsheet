@@ -270,8 +270,6 @@ console.log(q); // true
 6.  Global EC is created as soon as program is run.
 7.  As soon as EC is created it is pushed into stack.
 8.  As soon as EC is deleted it is popped out from stack.
-rupa.yarrathota@vogo.in
-yrupab9@gmail.com
 
 **chaining assignments**
 
