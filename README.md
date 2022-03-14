@@ -16,6 +16,8 @@
 - [Design question and WEB](#design)
 - [DS and ALGO](#dsandalgo)
 - [Seo](#seo)
+- [Web](#web)
+- [Optimization](#optimization)
 
 
 # Tech round 1
@@ -41,11 +43,11 @@ D - Dependency Inversion Principle
 
 - Elements such as header, nav, section, article, aside, and footer act more or less like div elements. They group other elements together into page sections.
 
-- Marquee is used for the scrolling text on a web page. It scrolls the image or text up, down, left or right automatically. You should put the text which you want to scroll within the <marquee>……</marquee> tag.
+- Marquee is used for the scrolling text on a web page. It scrolls the image or text up, down, left or right automatically. You should put the text which you want to scroll within the `<marquee>……</marquee>` tag.
 
 - An iframe is used to display a web page within a web page.
 
-- To create a multicolor text, you can use <font color =”color”> </font> for the specific texts that you want to color.
+- To create a multicolor text, you can use `<font color =”color”> </font>` for the specific texts that you want to color.
 
 - <!DOCTYPE html> is used to instruct the web browser about the HTML page.
 
@@ -1163,6 +1165,14 @@ How SSL works?
 - 4xx – Client errors - These are used when the server received a wrong request
 - 5xx – Server errors - When something wrong happens on the server, not because of client request data, but because of server state itself
 
+- **Axios** automatically transforms the data returned from the server, but with fetch() you have to call the response.json method to parse the data to a JavaScript object.
+- With Axios, the data response provided by the server can be accessed with in the data object, while for the fetch() method, the final data can be named any variable
+- One of the key features of Axios is its ability to intercept HTTP requests. HTTP interceptors come in handy when you need to examine or change HTTP requests from your application to the server or vice versa (e.g., logging, authentication, or retrying a failed HTTP request).
+
+- https://blog.logrocket.com/axios-vs-fetch-best-http-requests/
+
+
+
 
 **Service worker**
 
@@ -1229,3 +1239,13 @@ https://blog.sessionstack.com/how-javascript-works-the-building-blocks-of-web-wo
 
 - A canonical tag (rel=“canonical”) is a snippet of HTML code that defines the main version for duplicate, near-duplicate and similar pages. In other words, if you have the same or similar content available under different URLs, you can use canonical tags to specify which version is the main one and thus, should be indexed.
 
+## Optimization
+
+- ![Code splitting](./images/cs.png)
+- picture element over img tag, lazy load the images
+
+
+- What is windowing?
+Windowing or List virtualization is a concept of only rendering or write the visible portion in the current “ window ” to the DOM. The number of items that rendered at first time are smaller than the original one.
+The remaining items are rendered when you scroll down to it. The DOM nodes of items that exit the window are replaced by the new ones. This improves the performance of rendering a large list.
+Without windowing, the entire list is written to the DOM including items that are not in the current window. It means, you would have to wait until the entire list is written to see the first item.
