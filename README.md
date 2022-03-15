@@ -820,6 +820,7 @@ Eg of HOC
 
 - To run the useEffect on first render and on every update, no need to pass 2nd argument.
 - To call the method only when something changes, pass the second argument.
+- to call the method only at first render pass []
 - To mimic componentWillUnmount, useEffect may return a function that cleans up after it.
 - We can have mutiple effects in the same component.
 
@@ -984,6 +985,12 @@ When you type a web address into your browser (for our analogy that's like walki
 - The **defer** and **async** attributes were introduced to give developers a way to tell the browser which scripts to handle asynchronously.
 
 - Both of these attributes tell the browser that it may go on parsing the HTML while loading the script “in background”, and then execute the script after it loads. This way, script downloads don’t block DOM construction and page rendering. Result: the user can see the page before all scripts have finished loading.
+
+- The difference between defer and async is which moment they start executing the scripts.
+defer was introduced before async. Its execution starts after parsing is completely finished, but before the DOMContentLoaded event. It guarantees scripts will be executed in the order they appear in the HTML and will not block the parser.
+- async scripts execute at the first opportunity after they finish downloading and before the window’s load event. This means it’s possible (and likely) that async scripts are not executed in the order in which they appear in the HTML. It also means they can interrupt DOM building.
+
+Wherever they are specified, async scripts load at a low priority. They often load after all other scripts, without blocking DOM building. However, if an async script finishes downloading sooner, its execution can block DOM building and all synchronous scripts that finish downloading afterwards.
 
 - you can now use `<link rel="preload">` to communicate to the browser that you want to load them as soon as possible.
 - preload has other advantages too. Using as to specify the type of content to be preloaded allows the browser to:
