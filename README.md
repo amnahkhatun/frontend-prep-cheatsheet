@@ -123,6 +123,15 @@ Since 1 < 101 < 1000, the third rule (C) has a greater level of specificity, and
 
 - Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
 
+## Responsive
+
+## ![](./images/css-responsive.png)
+
+## Flex
+
+## ![](./images/flex-box.png)
+
+
 **scss vs css**
 
 - Using SCSS we can declare variables
