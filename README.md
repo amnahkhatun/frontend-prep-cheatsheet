@@ -36,7 +36,7 @@ D - Dependency Inversion Principle
 
 | div                                                                      | span                                                                                          |
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| The <div> tag is a block level element                                   | The <span> tag is an inline element.                                                          |
+| The `<div>` tag is a block level element                                   | The `<span>` tag is an inline element.                                                          |
 | It is best to attach it to a section of a web page.                      | It is best to attach a CSS to a small section of a line in a web page.                        |
 | This tag should be used to wrap a section, for highligting that section. | This tag should be used to wrap any specific word that you want to highlight in your webpage. |
 
