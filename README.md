@@ -19,7 +19,7 @@
 - [Optimization](#optimization)
 
 
-# Tech round 1
+# Front end Interview Prep
 
 SOLID stands for:
 
@@ -29,7 +29,7 @@ L - Liskov Substitution Principle
 I - Interface Segregation Principle
 D - Dependency Inversion Principle
 
-### HTML
+# HTML
 
 - DOCTYPE is an abbreviation for Document Type. A DOCTYPE is always associated to a DTD - for Document Type Definition.
 - For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects. Once a user agent has recognized a correct DOCTYPE, it will trigger the no-quirks mode matching this DOCTYPE for reading the document. If a user agent doesn't recognize a correct DOCTYPE, it will trigger the quirks mode.
@@ -52,7 +52,7 @@ D - Dependency Inversion Principle
 
 https://www.freecodecamp.org/news/semantic-html5-elements/#:~:text=Semantic%20HTML%20elements%20are%20those,content%20that%20is%20inside%20them.
 
-### CSS
+# CSS
 
 - https://rananitesh99.medium.com/five-css-interview-questions-you-will-be-asked-every-time-72fff69ecde
 
@@ -181,7 +181,7 @@ h2 {
 }
 ```
 
-### JS
+# JS
 
 **ES2021**
 
@@ -263,6 +263,11 @@ const {p, q} = o;
 console.log(p); // 42
 console.log(q); // true
 ```
+
+**Types of error**
+
+## [Types of error](https://blog.bitsrc.io/types-of-native-errors-in-javascript-you-must-know-b8238d40e492)
+
 
 **How JS works**
 
@@ -751,7 +756,7 @@ console.log(adventurer.someNonExistentMethod?.());
 - Data are not transferred on each HTTP request
 - 5-10 mb limit (check with the browser)
 
-### React
+# React
 
 ## ![](./images/lifecycle.png)
 
@@ -875,37 +880,7 @@ https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 - Organization: Redux is precise about how code should be organized, this makes the code more consistent and easier when a team works with it.
 
 
-**Optimization**
-- Memoization (useMemo(), React.memo)
-- React.Purecomponent. React.PureComponent optimizes our components by reducing the number of wasted renders.
-- Lazy loading and suspense
-- useCallback
-- If you render large lists of data, it is recommended that you render only a small portion of the datasets at a time within the visible viewport of a browser, then the next data are rendered as the lists is scrolled, this is called “windowing”.
-
-
-## Design question and WEB
-
-**Server sent events(SSE)**
-
-- Server Sent Events are a standard allowing browser clients to receive a stream of updates from a server over a HTTP connection without resorting to polling. Unlike WebSockets, Server Sent Events are a one way communications channel - events flow from server to client only.
-
-- You might consider using Server Sent Events when you have some rapidly updating data to display, but you don’t want to have to poll the server. Examples might include displaying the status of a long running business process, tracking stock price updates, or showing the current number of likes on a post on a social media network.
-
-https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-the-http/
-
-- HTTP can run on the top of any reliable connection-oriented protocol such as TCP, SCTP. When a client sends HTTP request to the server, a TCP connection is open between the client and server and after getting the response the TCP connection gets terminated, each HTTP request open separate TCP connection to the server, for e.g. if client send 10 requests to the server the 10 separate HTTP connection will be opened. and get closed after getting the response/fallback.
-
-
-**singleton design pattern**
-
-- The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
-
-- There are two important points in the traditional definition of Singleton pattern:
-
-- There should be only one instance allowed for a class and
-  We should allow global point of access to that single instance
-
-## DS and ALGO
+# DS and ALGO
 
 > Big O Notation
 
@@ -951,8 +926,40 @@ _splice delete or update value in an array_
 
 > `array.splice(start, deleteCount, newElem1, newElem2, ..., newElemN)`
 
+# System Design questions
 
-## WEB
+
+**Optimization**
+- Memoization (useMemo(), React.memo)
+- React.Purecomponent. React.PureComponent optimizes our components by reducing the number of wasted renders.
+- Lazy loading and suspense
+- useCallback
+- If you render large lists of data, it is recommended that you render only a small portion of the datasets at a time within the visible viewport of a browser, then the next data are rendered as the lists is scrolled, this is called “windowing”.
+
+**Server sent events(SSE)**
+
+- Server Sent Events are a standard allowing browser clients to receive a stream of updates from a server over a HTTP connection without resorting to polling. Unlike WebSockets, Server Sent Events are a one way communications channel - events flow from server to client only.
+
+- You might consider using Server Sent Events when you have some rapidly updating data to display, but you don’t want to have to poll the server. Examples might include displaying the status of a long running business process, tracking stock price updates, or showing the current number of likes on a post on a social media network.
+
+https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-the-http/
+
+- HTTP can run on the top of any reliable connection-oriented protocol such as TCP, SCTP. When a client sends HTTP request to the server, a TCP connection is open between the client and server and after getting the response the TCP connection gets terminated, each HTTP request open separate TCP connection to the server, for e.g. if client send 10 requests to the server the 10 separate HTTP connection will be opened. and get closed after getting the response/fallback.
+
+
+**singleton design pattern**
+
+- The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
+
+- There are two important points in the traditional definition of Singleton pattern:
+
+- There should be only one instance allowed for a class and
+  We should allow global point of access to that single instance
+
+
+
+
+### WEB
 
 
 When you type a web address into your browser (for our analogy that's like walking to the shop):
@@ -1016,6 +1023,7 @@ Wherever they are specified, async scripts load at a low priority. They often lo
 - react-window and react-virtualized are popular windowing libraries. They provide several reusable components for displaying lists, grids, and tabular data.
 
 - Windowing or List virtualization is a concept of only rendering or write the visible portion in the current “ window ” to the DOM. The number of items that rendered at first time are smaller than the original one
+
 **DNS**
 
 - A Domain Name System (DNS) translates a domain name such as www.example.com to an IP address.
@@ -1243,7 +1251,7 @@ https://blog.sessionstack.com/how-javascript-works-the-building-blocks-of-web-wo
 
 - used in chat applications
 
-## SEO
+# SEO
 
 - The `<meta>` tag defines metadata about an HTML document. Metadata is data (information) about data.
 

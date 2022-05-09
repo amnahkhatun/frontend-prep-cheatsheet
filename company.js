@@ -1,0 +1,4 @@
+Adobe
+Uber
+Microsoft
+Goldman_sachs
