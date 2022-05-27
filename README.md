@@ -23,11 +23,22 @@
 
 SOLID stands for:
 
-S - Single-responsiblity Principle
-O - Open-closed Principle
+S - Single-responsiblity Principle -- 
+O - Open-closed Principle -- Open for extension closed for modification
 L - Liskov Substitution Principle
 I - Interface Segregation Principle
 D - Dependency Inversion Principle
+
+-------------
+
+https://www.educative.io/edpresso/what-are-acid-properties-in-a-database
+
+A - Atomicity (Transaction either happen or doesn't happen)
+C - Consistency (state of data will always be consistent)
+I - Isolation (Two transaction doesn't need to know about each other)
+D - Durability (Changes that have been committed to the database should remain even in the case of software and system failure)
+
+
 
 # HTML
 
@@ -1274,3 +1285,17 @@ https://blog.sessionstack.com/how-javascript-works-the-building-blocks-of-web-wo
 Windowing or List virtualization is a concept of only rendering or write the visible portion in the current “ window ” to the DOM. The number of items that rendered at first time are smaller than the original one.
 The remaining items are rendered when you scroll down to it. The DOM nodes of items that exit the window are replaced by the new ones. This improves the performance of rendering a large list.
 Without windowing, the entire list is written to the DOM including items that are not in the current window. It means, you would have to wait until the entire list is written to see the first item.
+
+## Types of DB
+
+![db](./images/db.png)
+
+https://www.astera.com/type/blog/a-quick-overview-of-different-types-of-databases/
+
+- Relational
+- Non relational
+- File
+- Network
+
+![uri](./images/uri.png)
+
