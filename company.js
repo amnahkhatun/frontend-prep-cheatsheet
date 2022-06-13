@@ -1,4 +1,6 @@
-Adobe
+Adobe - referal
 Uber
-Microsoft
+Microsoft - referal
 Goldman_sachs
+Cred
+SAP - referal

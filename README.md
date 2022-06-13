@@ -947,6 +947,8 @@ _splice delete or update value in an array_
 - useCallback
 - If you render large lists of data, it is recommended that you render only a small portion of the datasets at a time within the visible viewport of a browser, then the next data are rendered as the lists is scrolled, this is called “windowing”.
 
+![optimization](./images/optimization1.png)
+
 **Server sent events(SSE)**
 
 - Server Sent Events are a standard allowing browser clients to receive a stream of updates from a server over a HTTP connection without resorting to polling. Unlike WebSockets, Server Sent Events are a one way communications channel - events flow from server to client only.
