@@ -59,7 +59,7 @@ https://www.educative.io/edpresso/what-are-acid-properties-in-a-database
 
 - To create a multicolor text, you can use `<font color =”color”> </font>` for the specific texts that you want to color.
 
-- <!DOCTYPE html> is used to instruct the web browser about the HTML page.
+- `<!DOCTYPE html> `is used to instruct the web browser about the HTML page.
 
 https://www.freecodecamp.org/news/semantic-html5-elements/#:~:text=Semantic%20HTML%20elements%20are%20those,content%20that%20is%20inside%20them.
 
