@@ -1,11 +1,10 @@
-# frontend-notes
-
-## [Node notes](./NODE.md)
+# Front end Interview Prep
 
 ## ![Js Engine](./images/jsEngine.png)
 
 ## ![How page loads](./images/webpageload.png)
 
+## Topics
 
 - [HTML](#html)
 - [CSS](#css)
@@ -19,26 +18,8 @@
 - [Optimization](#optimization)
 
 
-# Front end Interview Prep
-
-SOLID stands for:
-
-- S - Single-responsiblity Principle -- 
-- O - Open-closed Principle -- Open for extension closed for modification
-- L - Liskov Substitution Principle
-- I - Interface Segregation Principle
-- D - Dependency Inversion Principle
 
 -------------
-
-https://www.educative.io/edpresso/what-are-acid-properties-in-a-database
-
-- A - Atomicity (Transaction either happen or doesn't happen)
-- C - Consistency (state of data will always be consistent)
-- I - Isolation (Two transaction doesn't need to know about each other)
-- D - Durability (Changes that have been committed to the database should remain even in the case of software and system failure)
-
-
 
 # HTML
 
@@ -940,6 +921,22 @@ _splice delete or update value in an array_
 > `array.splice(start, deleteCount, newElem1, newElem2, ..., newElemN)`
 
 # System Design questions
+
+https://www.educative.io/edpresso/what-are-acid-properties-in-a-database
+
+- A - Atomicity (Transaction either happen or doesn't happen)
+- C - Consistency (state of data will always be consistent)
+- I - Isolation (Two transaction doesn't need to know about each other)
+- D - Durability (Changes that have been committed to the database should remain even in the case of software and system failure)
+
+
+SOLID stands for:
+
+- S - Single-responsiblity Principle -- 
+- O - Open-closed Principle -- Open for extension closed for modification
+- L - Liskov Substitution Principle
+- I - Interface Segregation Principle
+- D - Dependency Inversion Principle
 
 
 **Optimization**
