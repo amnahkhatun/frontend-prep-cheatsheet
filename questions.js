@@ -46,7 +46,7 @@ function findName() {
 var obj = {
   a: 7,
   b: () => console.log(this.a, this), // window, {window object}
-  c: function() {
+  c: function () {
     console.log(this.a, this); // 7, {}
   }
 };
@@ -63,14 +63,14 @@ console.log("4");
 
 //reduce
 
-Array.prototype.myReduce = function(callback, value) {
+Array.prototype.myReduce = function (callback, value) {
   let a = this;
   a.forEach(item => {
     value = value !== undefined ? callback(value, item) : item;
   });
   return value;
 };
-let x1 = [1, 2, 3].myReduce(function(a, b) {
+let x1 = [1, 2, 3].myReduce(function (a, b) {
   return a + b;
 });
 // console.log(x1);
@@ -82,7 +82,7 @@ function add(x, y) {
   if (y !== undefined) {
     return x + y;
   } else {
-    return function(y) {
+    return function (y) {
       return x + y;
     };
   }
@@ -104,7 +104,7 @@ function add2(...arr) {
 
 // const add3 = (a) => (b) => (b ? add3(a + b) : a);
 function add3(a) {
-  return function(b) {
+  return function (b) {
     return b == null ? a : add3(a + b);
   };
 }
@@ -129,7 +129,7 @@ obj2.address.city = "new york";
 
 //aptech
 
-(function() {
+(function () {
   //b = 3;
   //var a = b;
 
@@ -145,11 +145,11 @@ var foo = "xyz";
 
 var myObject = {
   foo: "bar",
-  func: function() {
+  func: function () {
     var self = this;
     console.log("outer func:  this.foo = " + this.foo); //bar
     console.log("outer func:  self.foo = " + self.foo); //bar
-    (function() {
+    (function () {
       //In IIFE this points to window / global object
       console.log("inner func:  this.foo = " + this.foo); // xyz
       console.log("inner func:  self.foo = " + self.foo); //bar
@@ -351,7 +351,7 @@ console.log(getNames(structure2));
 // console.log(obj2, "obj2");
 
 function delay(time) {
-  let myPromise = new Promise(function(resolve) {
+  let myPromise = new Promise(function (resolve) {
     setTimeout(resolve, time);
   });
 
@@ -387,14 +387,14 @@ hello.call({ name: "tom" });
 
 for (var i = 0; i < 10; i++) {
   function xyz(j) {
-    setTimeout(function() {
+    setTimeout(function () {
       console.log(j);
     }, 0);
   }
   xyz(i);
 }
 
-(function() {
+(function () {
   try {
     throw new Error();
   } catch (x) {
@@ -406,7 +406,7 @@ for (var i = 0; i < 10; i++) {
   console.log(y); // 2
 })();
 
-(function() {
+(function () {
   var x, y;
   try {
     throw new Error();
@@ -496,7 +496,7 @@ x = 13;
 [5, 8, 3, 13, 15, 12, 8, 20, 12, 20] */
 
 //signEasy
-(function() {
+(function () {
   try {
     throw new Error();
   } catch (x) {
@@ -508,7 +508,7 @@ x = 13;
   console.log(y); //2
 })();
 
-let arr = ["above average"];
+let arr1 = ["above average"];
 //dictionary
 let height = [
   { value: 24, remark: "above average" },
@@ -537,11 +537,11 @@ function dummy(height) {
 
 var myObject = {
   foo: "bar",
-  func: function() {
+  func: function () {
     var self = this;
     console.log("outer func:  this.foo = " + this.foo); //bar
     console.log("outer func:  self.foo = " + self.foo); //bar
-    (function() {
+    (function () {
       console.log("inner func:  this.foo = " + this.foo); //undefined
       console.log("inner func:  self.foo = " + self.foo); //bar
     })();
@@ -629,3 +629,19 @@ console.log(numbers); //[5]
 //ssr
 //singleton design pattern-implement
 //
+
+
+//Epam anywhere
+const dummy = [1, 2, 3, 4]
+console.log(dummy.indexOf(2)) //1
+console.log(dummy.indexOf(21)) //-1
+
+for (var i = 0; i <= 5; i++) {
+  console.log(i) // 0 1 2 3 4 5
+}
+console.log(i) //6
+
+for (let j = 0; j <= 5; j++) {
+  console.log(j) // 0 1 2 3 4 5
+}
+console.log(j) //reference error

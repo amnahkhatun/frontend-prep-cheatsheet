@@ -80,8 +80,8 @@ https://www.freecodecamp.org/news/semantic-html5-elements/#:~:text=Semantic%20HT
 
 - The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.
 
-- content-box	Default. The width and height properties (and min/max properties) includes only the content. Border and padding are not included. 
-- border-box	The width and height properties (and min/max properties) includes content, padding and border.
+- content-box. The width and height properties (and min/max properties) includes only the content. Border and padding are not included. 
+- border-box Default	The width and height properties (and min/max properties) includes content, padding and border.
 eg if width is 300px in border-box it will not add padding and margin
 
 - Height is the vertical measurement of the container.
@@ -607,6 +607,8 @@ Lexical environment = local memory + lexical env of its parent
 
 - lexical means heirarchy or in sequence
 - inner function is lexically inside outer function
+
+- Execution context = variable environment + scope chain + this keyword
 
 **Scope**
 
