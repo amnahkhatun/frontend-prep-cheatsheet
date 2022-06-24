@@ -844,6 +844,14 @@ https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 ## ![](./images/redux2.png)
 ## ![](./images/redux3.png)
 
+- Redux is a state management library
+- **Action creator** - is a function which return plain JS object. Action creator returns action.
+- **Action** - Action are objects with Type and payload. The purpose of the action is to describe the change that we want to be made.
+- **dispatch** - dispatch takes the action and pass the object to reducers. It is a part of redux library we dont need to write it from scratch.
+- **reducer** - is responsible to take in the action make the changes and update the state in the store of our application. Based on the action type reducers make the changes
+
+## [redux example codepen](https://codepen.io/amnahkhatun/pen/MWQNJQL?editors=0010)
+
 **core concept of redux**
 
 - Single source of truth.
