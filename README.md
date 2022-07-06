@@ -11,6 +11,7 @@
 - [JS](#js)
 - [React](#react)
 - [Redux](#redux)
+- [testing](#testing)
 - [Design question and WEB](#design)
 - [DS and ALGO](#dsandalgo)
 - [Seo](#seo)
@@ -881,6 +882,8 @@ https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 
 - Organization: Redux is precise about how code should be organized, this makes the code more consistent and easier when a team works with it.
 
+### Testing react
+- https://codesandbox.io/s/mystifying-saha-qod6kw?file=/src/App.test.js
 
 # DS and ALGO
 
