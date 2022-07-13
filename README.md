@@ -11,9 +11,10 @@
 - [JS](#js)
 - [React](#react)
 - [Redux](#redux)
-- [testing](#testing)
-- [Design question and WEB](#design)
-- [DS and ALGO](#dsandalgo)
+- [Testing](#testing)
+- [DS_and_ALGO](#DS_and_ALGO)
+- [Design](#design)
+- [Web](#web)
 - [Seo](#seo)
 - [Web](#web)
 - [Optimization](#optimization)
@@ -839,11 +840,13 @@ Eg of HOC
 
 https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 
-### Redux
+# Redux
 
 ## ![](./images/redux.png)
 ## ![](./images/redux2.png)
 ## ![](./images/redux3.png)
+SR221609686
+- **createStore, combineReducers, connect, and Provider**.
 
 - Redux is a state management library
 - **Action creator** - is a function which return plain JS object. Action creator returns action.
@@ -882,10 +885,10 @@ https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 
 - Organization: Redux is precise about how code should be organized, this makes the code more consistent and easier when a team works with it.
 
-### Testing react
+# Testing
 - https://codesandbox.io/s/mystifying-saha-qod6kw?file=/src/App.test.js
 
-# DS and ALGO
+# DS_and_ALGO
 
 > Big O Notation
 
@@ -931,7 +934,7 @@ _splice delete or update value in an array_
 
 > `array.splice(start, deleteCount, newElem1, newElem2, ..., newElemN)`
 
-# System Design questions
+# Design
 
 https://www.educative.io/edpresso/what-are-acid-properties-in-a-database
 
@@ -982,7 +985,7 @@ https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-th
 
 
 
-### WEB
+# Web
 
 
 When you type a web address into your browser (for our analogy that's like walking to the shop):
