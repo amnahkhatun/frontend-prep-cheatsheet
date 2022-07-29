@@ -975,18 +975,6 @@ https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-th
 - HTTP can run on the top of any reliable connection-oriented protocol such as TCP, SCTP. When a client sends HTTP request to the server, a TCP connection is open between the client and server and after getting the response the TCP connection gets terminated, each HTTP request open separate TCP connection to the server, for e.g. if client send 10 requests to the server the 10 separate HTTP connection will be opened. and get closed after getting the response/fallback.
 
 
-**singleton design pattern**
-
-- The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
-
-- There are two important points in the traditional definition of Singleton pattern:
-
-- There should be only one instance allowed for a class and
-  We should allow global point of access to that single instance
-
-
-
-
 # Web
 
 
@@ -1147,6 +1135,16 @@ console.log(person2.getFullName());
 ```
 
 **Singleton pattern**
+
+- The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
+
+- There are two important points in the traditional definition of Singleton pattern:
+
+- There should be only one instance allowed for a class and
+  We should allow global point of access to that single instance
+- eg jQuery
+
+![singleton](./images/singleton.png)
 
 - singleton pattern, it is, at its core, a design pattern that restricts the instantiation of a class to one object. Usually, the goal is to manage global application state. 
 - https://www.sitepoint.com/javascript-design-patterns-singleton/
