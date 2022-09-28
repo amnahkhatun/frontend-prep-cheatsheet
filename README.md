@@ -847,7 +847,7 @@ https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
 ## ![](./images/redux.png)
 ## ![](./images/redux2.png)
 ## ![](./images/redux3.png)
-SR221609686
+
 - **createStore, combineReducers, connect, and Provider**.
 
 - Redux is a state management library
@@ -1005,9 +1005,9 @@ When you type a web address into your browser (for our analogy that's like walki
             - Rendering steps include style, layout, paint and, in some cases, compositing. The CSSOM and DOM trees created in the parsing step are combined into a render tree which is then used to compute the layout of every visible element, which is then painted to the screen.
         - layout
         - paint
-            - The last step in the critical rendering path is painting the individual nodes to the screen, the first occurrence of which is called the first meaningful paint. In the painting or rasterization phase, the browser converts each box calculated in the layout phase to actual pixels on the screen. Painting involves drawing every visual part of an element to the screen, including text, colors, borders, shadows, and replaced elements like buttons and images. The browser needs to do this super quickly.
+            - The last step in the critical rendering path is painting the individual nodes to the screen, the first occurrence of which is called the **first meaningful paint**. In the painting or rasterization phase, the browser converts each box calculated in the layout phase to actual pixels on the screen. Painting involves drawing every visual part of an element to the screen, including text, colors, borders, shadows, and replaced elements like buttons and images. The browser needs to do this super quickly.
    
-- Time to Interactive (TTI) is the measurement of how long it took from that first request which led to the DNS lookup and SSL connection to when the page is interactive -- interactive being the point in time after the First Contentful Paint when the page responds to user interactions within 50ms.
+- **Time to Interactive (TTI)** is the measurement of how long it took from that first request which led to the DNS lookup and SSL connection to when the page is interactive -- interactive being the point in time after the First Contentful Paint when the page responds to user interactions within 50ms.
 - Browser initiate the request every time it finds limks to external resources in stylesheet, scripts etc.
 
 -----------------------
