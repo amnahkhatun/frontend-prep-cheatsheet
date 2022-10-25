@@ -645,3 +645,118 @@ for (let j = 0; j <= 5; j++) {
   console.log(j) // 0 1 2 3 4 5
 }
 console.log(j) //reference error
+
+
+//Lyric
+// /**
+//  *
+//  * Write a function which takes in an object and a path string (ex: "key1.key2.key3")
+//  * and returns the value requested in the path from within the object.
+//  *
+//  */
+
+
+//  let obj = {
+//   a: {
+//     b: {
+//       c: {
+//         d: {
+//           e: 35
+//         },
+//         z: "earth"
+//       }
+//     },
+//     likes: ["react", "tailwindcss", "typescript"]
+//   }
+// };
+
+// // console.log(returnNestedValue(obj, "a.b.c.d.e")); // should return "35"
+// // console.log(returnNestedValue(obj, "a.c.d.e")); // should return "null"
+// // console.log(returnNestedValue(obj, "a.b.c.z")); // should return "earth"
+// // console.log(returnNestedValue(obj, "a.likes")); // should return "['react', 'tailwindcss', 'typescript']"
+
+
+
+
+
+
+// import React, { useEffect } from "react";
+
+// export function GrandParent() {
+//   console.log("Inside Grand Parent");
+
+//   useEffect(() => {
+//     return () => console.log("Out of grand Parent");
+//   }, []);
+
+//   return <Parent />;
+// }
+
+// function Parent() {
+//   console.log("Inside Parent");
+
+//   useEffect(() => {
+//     return () => console.log("Out of Parent");
+//   }, []);
+
+//   return <Child />;
+// }
+
+// function Child() {
+//   console.log("Inside Child");
+
+//   useEffect(() => {
+//     return () => console.log("Out of Child");
+//   }, [])
+// return <div>Child</div>;
+// }
+
+// import React, { useState } from "react";
+
+// export function APIComponent() {
+//   const [count, setCount] = useState(0);
+//   const [text, setText] = useState("Text");
+
+//   async function functionA() {
+//     const response = await Promise.resolve(11);
+//     setCount(response); //11
+//     if (count > 10) { 
+//       setText("Greater than 10");
+//     }
+//   }
+
+//   return (
+//     <div>
+//       <button onClick={() => functionA()}>API CALL</button>
+//       {count} //11
+//       {text} // text
+//     </div>
+//   );
+// }
+// End of function
+
+
+function foo(a, b) {
+  console.log(b);// 0
+
+  return {
+    foo: function (c) {
+      return foo(c, a);
+    },
+  };
+}
+
+const caller = foo(0);
+caller(1);
+caller(2);
+caller(3);
+// End of function
+
+
+
+
+
+
+
+
+// // End of function

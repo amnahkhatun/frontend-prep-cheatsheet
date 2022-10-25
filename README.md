@@ -465,6 +465,37 @@ console.log(error)
 * Promise.race() takes an array (or any iterable) and returns a promise that resolves with the value of the first resolved promise in the iterable, or rejects with the reason of the first promise that rejects.
 * Promise.all() takes an array (or any iterable) and returns a promise that resolves when all of the promises in the iterable argument have resolved, or rejects with the reason of the first passed promise that rejects.
 
+**filter vs find**
+
+- filter iterates over all the elements of the array and then returns the filtered array which satisfies the condition
+
+```
+const arr = [1,2,3,4,5]
+
+const result = arr.filter( el => el % 2 === 0) // [2,4]
+```
+
+- find returns the first element of the array that satisfies the condion
+
+```
+const arr = [1,2,3,4,5]
+
+const result = arr.find( el => el % 2 === 0) // 2
+
+```
+**Observables**
+
+- Observables may be async or sync and observables may emit multiple values.
+
+**Interceptors**
+
+- Interceptors are code blocks that you can use to preprocess or post-process HTTP calls, helping with global error handling, authentication, logging, and more.
+
+**Rest API**
+
+- Rest is stateless. REST APIs do not require any server-side sessions. Server applications aren’t allowed to store any data related to a client request.
+- REST APIs can be developed using virtually any programming language and support a variety of data formats.
+
 **Event propagation**
 
 https://medium.com/@marjuhirsh/event-propagation-event-delegation-7d3db1baf02a#:~:text=Event%20delegation%20takes%20advantage%20of,event%20listeners%20to%20specific%20nodes.&text=If%20a%20page%20would%20have,up%20a%20lot%20of%20memory.
@@ -785,10 +816,15 @@ console.log(adventurer.someNonExistentMethod?.());
 
 https://codesandbox.io/s/a-simple-higher-order-component-forked-lk8gq?file=/index.js
 
-- A HOC takes a component as input parameter and returns a new component.
-- We don’t modify or mutate the component. We create new ones.
-- A HOC is used to compose components for code reuse.
+- A HOC is a pattern where a function takes a component as an argument and returns a new component.
+- HOC doesn't modify or mutate the component. It create a new ones.
 - A HOC is a pure function. That means it has no side effects. It only returns a new component.
+- HOC is used for code reuse or share the common functionality between components.
+
+```
+const EnhancedComponent = HocComponent(wrappedComponent)
+```
+
 
 ```
 
@@ -808,11 +844,6 @@ const App(){
 <NewComponent name ="Hello" >
 }
 
-```
-
-- Reuse component logic
-
-```
 
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
@@ -822,7 +853,10 @@ https://www.smashingmagazine.com/2020/06/higher-order-components-react/
 
 Eg of HOC
 
-- PROVIDE COMPONENTS WITH SPECIFIC STYLING
+- Connect
+- withStyles in material UI
+- withRouter in react router
+- map,filter,reduce
 
 #### Hooks
 
