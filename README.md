@@ -1030,6 +1030,12 @@ When you type a web address into your browser (for our analogy that's like walki
     - In TCP slow start, after receipt of the initial packet, the server doubles the size of the next packet to around 28Kb. Subsequent packets increase in size until a predetermined threshold is reached, or congestion is experienced.
 5. **Parsing** Once the browser receives the first chunk of data, it can begin parsing the information received. Parsing is the step the browser takes to turn the data it receives over the network into the DOM and CSSOM, which is used by the renderer to paint a page to the screen.
     - Critical rendering path
+
+        - Process HTML markup and build the DOM tree.
+        - Process CSS markup and build the CSSOM tree.
+        - Combine the DOM and CSSOM into a render tree.
+        - Run the layout on the render tree to compute the geometry of each node.
+        - Paint the individual nodes to the screen.
         - DOM
             - preload scanner
             - While the browser builds the DOM tree, this process occupies the main thread. As this happens, the preload scanner will parse through the content available and request high priority resources like CSS, JavaScript, and web fonts. Thanks to the preload scanner, we don't have to wait until the parser finds a reference to an external resource to request it. It will retrieve resources in the background so that by the time the main HTML parser reaches requested assets, they may possibly already be in flight, or have been downloaded. The optimizations the preload scanner provides reduce blockages.
