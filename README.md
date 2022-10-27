@@ -1043,9 +1043,11 @@ When you type a web address into your browser (for our analogy that's like walki
         - CSSOM
         - render tree
             - Rendering steps include style, layout, paint and, in some cases, compositing. The CSSOM and DOM trees created in the parsing step are combined into a render tree which is then used to compute the layout of every visible element, which is then painted to the screen.
-        - layout
+        - layout: Layout is the process by which the width, height, and location of all the nodes in the render tree are determined, plus the determination of the size and position of each object on the page.
+            - Subsequent recalculations of node size and locations are called reflows
         - paint
             - The last step in the critical rendering path is painting the individual nodes to the screen, the first occurrence of which is called the **first meaningful paint**. In the painting or rasterization phase, the browser converts each box calculated in the layout phase to actual pixels on the screen. Painting involves drawing every visual part of an element to the screen, including text, colors, borders, shadows, and replaced elements like buttons and images. The browser needs to do this super quickly.
+        - As the page continues to load assets, reflows can happen (recall our example image that arrived late). A reflow sparks a repaint and a re-composite. Had we defined the size of our image, no reflow would have been necessary, and only the layer that needed to be repainted would be repainted, and composited if necessary. But we didn't include the image size! When the image is obtained from the server, the rendering process goes back to the layout steps and restarts from there.
    
 - **Time to Interactive (TTI)** is the measurement of how long it took from that first request which led to the DNS lookup and SSL connection to when the page is interactive -- interactive being the point in time after the First Contentful Paint when the page responds to user interactions within 50ms.
 - Browser initiate the request every time it finds limks to external resources in stylesheet, scripts etc.
