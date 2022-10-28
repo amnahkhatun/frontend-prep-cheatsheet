@@ -1073,6 +1073,8 @@ Wherever they are specified, async scripts load at a low priority. They often lo
 - Store in the cache for future requests, reusing the resource if appropriate.
 - Apply the correct content security policy to the resource.
 - Set the correct Accept request headers for it.
+- Preload is an early fetch instruction to the browser to request a resource needed for a page (key scripts, Web Fonts, hero images).
+- **Prefetch** serves a slightly different use case — a future navigation by the user (e.g between views or pages) where fetched resources and requests need to persist across navigations
 
 - https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/
 
