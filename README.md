@@ -1,4 +1,4 @@
-# Front end Interview Prep
+# Frontennd Interview prep cheatsheet
 
 ## ![Js Engine](./images/jsEngine.png)
 
