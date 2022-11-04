@@ -628,24 +628,16 @@ Lexical environment = local memory + lexical env of its parent
 
 **Scope**
 
-var - refers to same memory location
 ``` 
-var b = 100;
-{
-var b =10;
-console.log(b) ==> 10
+function a(){
+  console.log(b)
+  console.log(c)
 }
-console.log(b) ==> 10
-shadows and update the global variable
+let b = 10;
+var c = 20;
 
-let b = 200
-{
-let b = 20;
-console.log(b) ==> 20 [Block memory space]
-}
-console.log(b) ==> 200 [script memory space]
+a() // 10,20
 ```
-let & const are stored in different memory location
 
 ![Screenshot](./images/scope_chain.jpeg)
 
