@@ -1,4 +1,4 @@
-##PAYTM
+## PAYTM
 
 // problem: given array = [1,2,3,4,5,6]
 // print all ordered pairs that matches the sum n.
