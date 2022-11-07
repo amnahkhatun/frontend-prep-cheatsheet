@@ -99,7 +99,7 @@ function add3(a) {
 add3(2)(3)(1)(4)(); //10
 ```
 ---
-##NIUM
+## NIUM
 ```
 let obj1 = {
   fname: "amnah",
@@ -121,7 +121,7 @@ console.log(obj1, "obj1"); // { fname: 'elon', lname: 'khatun', address: { city:
 console.log(obj2, "obj2"); // { fname: 'elon', lname: 'khatun', address: { city: 'new york' } }
 
 ```
-##APTECH
+## APTECH
 ```
 (function () {
   var a = (b = 3);
@@ -153,7 +153,7 @@ myObject.func();
 ```
 ---
 
-##Byjus
+## Byjus
 ```
 let filterNonUnique = arr => {
   let mySet = new Set();
@@ -274,7 +274,7 @@ console.log("0 && 1 = " + (0 && 1)); //0
 console.log("1 && 2 = " + (1 && 2)); //2
 ```
 
-##Nium
+## Nium
 ```
 var structure2 = {
   name: "alpha",
@@ -361,29 +361,32 @@ var callback = () => alert("runs after 3 seconds");
 delay(3000).then(callback);
 ```
 ## Zapr 1st round
+```
 let obj1 = {
   fname: "amnah"
 };
 
 let obj2 = {
-  fname: "elon"
+  fname: "Steve"
 };
 
 function printName(greet) {
   console.log(this.fname, greet);
 }
-
-printName.call(obj1, "hi");
-printName.apply(obj2, ["hi"]);
+ 
+printName.call(obj1, "hi"); //amnah hi
+printName.apply(obj2, ["hi"]);//Steve hi
 
 function hello() {
   setTimeout(() => {
     console.log(this.name);
   }, 100);
 }
-hello.call({ name: "tom" });
-
-for (var i = 0; i < 10; i++) {
+hello.call({ name: "tom" }); //tom
+```
+---
+```
+for (var i = 0; i < 6; i++) {
   function xyz(j) {
     setTimeout(function () {
       console.log(j);
@@ -391,7 +394,10 @@ for (var i = 0; i < 10; i++) {
   }
   xyz(i);
 }
-
+O/P: 0,1,2,3,4,5
+```
+---
+```
 (function () {
   try {
     throw new Error();
@@ -403,6 +409,10 @@ for (var i = 0; i < 10; i++) {
   console.log(x); // undefined
   console.log(y); // 2
 })();
+```
+---
+```
+//The above will be interpreted like this
 
 (function () {
   var x, y;
@@ -416,19 +426,23 @@ for (var i = 0; i < 10; i++) {
   console.log(x);
   console.log(y);
 })();
+```
+---
+```
 var a = [1, 2, 3];
 var b = [1, 2, 3];
 var c = "1,2,3";
-
 // == implicitely converts one of the value
 
 console.log(a == c); // true //array is implicitly converted to primitive value ie string
 console.log(b == c); // true // implicitely converts array to string
 console.log(a == b); // false
-console.log(typeof a);
-console.log(typeof b);
-console.log(typeof c);
-
+console.log(typeof a); //object
+console.log(typeof b); //object
+console.log(typeof c); //string
+```
+---
+```
 var Employee = {
   company: "xyz"
 };
@@ -440,6 +454,9 @@ console.log(emp1.company); //xyz
 // emp1 object doesn't have company as its own property. you can test it console.log(emp1.hasOwnProperty('company')); //output : false However, we can delete company property directly from Employee object using delete Employee.company or we can also delete from emp1 object using __proto__ property delete emp1.__proto__.company.
 
 console.log(emp1.hasOwnProperty("company")); //false
+```
+---
+```
 var courses = ["JavaScript", "Java", "C", "C++", "Python"];
 delete courses[2];
 //  console.log(courses) //["JavaScript", "Java", undefined, "C++", "Python"]
@@ -448,7 +465,9 @@ var b = [];
 b[0] = undefined;
 b[2] = 1;
 console.log(b.map(e => 7)); //[7, undefined, 7]
-
+```
+---
+```
 const myObj = {
   a: 1,
   b: "hello",
@@ -460,40 +479,29 @@ Object.freeze(myObj);
 myObj.b = "hi";
 
 console.log(myObj);
+```
+---
+```
+/* There is an array. find two elements in array that sum to x. retrun -1 if no such elements exist*/
+const x = 13;
+const arr = [5, 8, 3, 13, 15, 12, 8, 20, 12, 20];
 
-function xyz(myObj) {
-  Object.freeze(myObj);
-  Object.entries(myObj).map(([key, value]) => {
-    if (typeof value === "object") {
-      xyz(value);
-    }
-  });
-  return false;
-}
-
-xyz(myObj);
-
-const getResult = async () => {
-  const result = [];
-  for (let i = 0; i < 5; i++) {
-    result.push(await doAsyncCall());
+function dummy(arr,x){
+let myMap = new Map();
+for(let i =0;i<arr.length;i++){
+  let diff=x - arr[i];
+  if(myMap.has(diff)){
+    return [arr[i],diff]
+  }else{
+    myMap.set(arr[i],i)
   }
-  console.log(result);
-};
-
-const getResult1 = () => {
-  const result = [];
-  [0, 1, 2, 3, 4].forEach(async num => {
-    result.push(await doAsyncCall());
-  });
-  console.log(result);
-};
-
-/* There is an array. find two elements in array that sum to x. retrun -1 if no such elements exist.
-x = 13;
-[5, 8, 3, 13, 15, 12, 8, 20, 12, 20] */
-
-//signEasy
+}
+}
+console.log(dummy(arr,x))
+```
+---
+## signEasy
+```
 (function () {
   try {
     throw new Error();
@@ -505,34 +513,9 @@ x = 13;
   console.log(x); // undefined
   console.log(y); //2
 })();
-
-let arr1 = ["above average"];
-//dictionary
-let height = [
-  { value: 24, remark: "above average" },
-  { value: 3, remark: "below average" },
-  { value: 12, remark: "average" },
-  { value: 32, remark: "above average" },
-  { value: 8, remark: "below average" },
-  { value: 12, remark: "average" }
-];
-
-function dummy(height) {
-  let max = 0;
-
-  for (let i = 0; i < height.length; i++) {
-    for (let j = i + 1; j < height.length; j++) {
-      if (height[i]["value"] > height[j]["value"]) {
-        [height[i], height[j]] = [height[j], height[i]];
-      }
-    }
-  }
-
-  return height;
-}
-// dummy(height)
-// console.log(dummy(height))
-
+```
+---
+```
 var myObject = {
   foo: "bar",
   func: function () {
@@ -546,7 +529,8 @@ var myObject = {
   }
 };
 // myObject.func();
-
+```
+---
 // p:nth-child(2) { color: black; }
 // p:nth-of-type(2) { color: red; }
 // <div>a</div>
@@ -572,22 +556,13 @@ var myObject = {
 
 //example1 box will be bigger than example2
 
+---
+```
 1 && "ABC"; // ABC
 1 || "ABC"; // 1
 false - "abc"; // NaN
-
-let data = [1970, 0, 1];
-let d = new Date(...data);
-console.log(d); // Thu Jan 01 1970 00:00:00 GMT+0530 (India Standard Time)
-let a = 10;
-function abc() {
-  console.log(a);
-}
-console.log(a); // 10
-
-typeof null; // object
-typeof typeof undefined; // string
-
+---
+```
 var variable1 = 23;
 let variable2 = 89;
 function catchValues() {
@@ -596,8 +571,10 @@ function catchValues() {
 }
 catchValues();
 console.log("3", window.variable1); //23
-console.log("4", window.variable2); //undefined
-
+console.log("4", window.variable2); //undefined, let is not stored in window object
+```
+---
+```
 function foo() {
   let a = (b = 0);
   a++;
@@ -614,22 +591,11 @@ for (var i = 0; i < length; i++);
   numbers.push(i + 1);
 }
 console.log(numbers); //[5]
+```
+---
 
-//render hijacking
-//suspense
-//axios interceptor
-//prop of exception
-//diff btwn foreach nd map
-//how does float works
-//content-box nd box-sizing
-//cicd
-//function programming
-//ssr
-//singleton design pattern-implement
-//
-
-
-//Epam anywhere
+## Epam anywhere
+```
 const dummy = [1, 2, 3, 4]
 console.log(dummy.indexOf(2)) //1
 console.log(dummy.indexOf(21)) //-1
@@ -643,9 +609,10 @@ for (let j = 0; j <= 5; j++) {
   console.log(j) // 0 1 2 3 4 5
 }
 console.log(j) //reference error
+```
+---
 
-
-//Lyric
+## Lyric
 // /**
 //  *
 //  * Write a function which takes in an object and a path string (ex: "key1.key2.key3")
@@ -653,30 +620,28 @@ console.log(j) //reference error
 //  *
 //  */
 
+```
+ let obj = {
+  a: {
+    b: {
+      c: {
+        d: {
+          e: 35
+        },
+        z: "earth"
+      }
+    },
+    likes: ["react", "tailwindcss", "typescript"]
+  }
+};
 
-//  let obj = {
-//   a: {
-//     b: {
-//       c: {
-//         d: {
-//           e: 35
-//         },
-//         z: "earth"
-//       }
-//     },
-//     likes: ["react", "tailwindcss", "typescript"]
-//   }
-// };
+console.log(returnNestedValue(obj, "a.b.c.d.e")); // should return "35"
+console.log(returnNestedValue(obj, "a.c.d.e")); // should return "null"
+console.log(returnNestedValue(obj, "a.b.c.z")); // should return "earth"
+console.log(returnNestedValue(obj, "a.likes")); // should return "['react', 'tailwindcss', 'typescript']"
 
-// // console.log(returnNestedValue(obj, "a.b.c.d.e")); // should return "35"
-// // console.log(returnNestedValue(obj, "a.c.d.e")); // should return "null"
-// // console.log(returnNestedValue(obj, "a.b.c.z")); // should return "earth"
-// // console.log(returnNestedValue(obj, "a.likes")); // should return "['react', 'tailwindcss', 'typescript']"
-
-
-
-
-
+```
+---
 
 // import React, { useEffect } from "react";
 
@@ -731,11 +696,11 @@ console.log(j) //reference error
 //     </div>
 //   );
 // }
-// End of function
 
-
+---
+```
 function foo(a, b) {
-  console.log(b);// 0
+  console.log(b);
 
   return {
     foo: function (c) {
@@ -748,13 +713,63 @@ const caller = foo(0);
 caller(1);
 caller(2);
 caller(3);
-// End of function
 
+```
+---
+```
+function changeData(a, b, c) {
+  a = a * 10;
+  b.item = "changed";
+  c = { item: "changed" };
+}
 
+var num = 10;
+var obj1 = { item: "unchanged" };
+var obj2 = { item: "unchanged" };
 
+changeData(num, obj1, obj2);
 
+console.log(num); //10
+console.log(obj1.item); //changed
+console.log(obj2.item); //unchanged
+```
+---
+```
+var Employee = {
+  company: "xyz"
+};
+var emp1 = {...Employee};
+delete emp1.company;
+console.log(emp1.company); //undefined
+```
+---
 
+## HCL
 
+```
+const jobs = [
+  { "name": "dhiraj", "isactive": true },
+  { "name": "raj", "isactive": true },
+  { "name": "sunil", "isactive": false }
+]
 
+function dummy(jobs) {
+  let newArr = [];
 
-// // End of function
+  for (let i = 0; i < jobs.length; i++) {
+    if (jobs[i].isactive) {
+      newArr.push(jobs[i])
+    }
+    // console.log(jobs[i].isactive)
+  }
+  return newArr
+  }
+  ```
+  ---
+  ```
+  function isInt(num) {
+  return num % 1 === 0;
+}
+
+console.log(isInt(4.5)) //false
+```
