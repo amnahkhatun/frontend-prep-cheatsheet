@@ -531,6 +531,7 @@ var myObject = {
 // myObject.func();
 ```
 ---
+
 // p:nth-child(2) { color: black; }
 // p:nth-of-type(2) { color: red; }
 // <div>a</div>
@@ -557,10 +558,12 @@ var myObject = {
 //example1 box will be bigger than example2
 
 ---
+
 ```
 1 && "ABC"; // ABC
 1 || "ABC"; // 1
 false - "abc"; // NaN
+```
 ---
 ```
 var variable1 = 23;
