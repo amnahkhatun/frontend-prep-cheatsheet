@@ -864,6 +864,9 @@ Eg of HOC
 
 > useCallback and useMemo
 
+- useCallback checks if the value for the function has changed, if not no need to create the function from scratch.
+- useMemo remembers the value, only when the particular data changes it run the function.
+
 - useCallback and useMemo both expect a function and an array of dependencies. The difference is that useCallback returns its function when the dependencies change while useMemo calls its function and returns the result.
 
 https://medium.com/@jan.hesters/usecallback-vs-usememo-c23ad1dc60
