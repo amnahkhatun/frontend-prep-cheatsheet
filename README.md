@@ -86,8 +86,11 @@ eg if width is 300px in border-box it will not add padding and margin
 | ------------------------------------------------------------------- | ------------------------------------ | -------------------------------- |
 | pixel is of absolute width, it will be same no matter where defined | % is based out of its parent element | 1vh = 1/100 of total screen size |
 
-- rem is based put of root element
+- px is an absolute unit which means it don't depend on anything
+- rem is based put of root element, it is a relative unit
 - em is based to near parent element
+
+- https://www.youtube.com/watch?v=dHbYcAncAgQ
 
 | pseudo class                                 | pseudo elements                                                 |
 | -------------------------------------------- | --------------------------------------------------------------- |
