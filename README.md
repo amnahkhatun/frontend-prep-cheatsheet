@@ -439,22 +439,29 @@ Promise with reject and resolve
 
 ```
 
-let myPromise = new Promise((resolve, reject) => {
-let condition;
-if(condition is met){
-    resolve('Success')
-      } else {
-        reject ('Rejection')
-      }
-})
+let promise = new Promise(function(resolve, reject) {
+const x = 2;
+const y = 1 + 1
+if(x === y) {
+	resolve();
+} else {
+	reject();
+}
+});
+	
+promise.
+	then(function () {
+		console.log('Success');
+	}).
+	catch(function () {
+		console.log('Some error has occurred');
+	});
 
-myPromise.then(
-(message)=>{console.log(message)
-}).catch((error)=>{
-console.log(error)
-})
 
 ```
+## axios vs fetch
+- https://blog.logrocket.com/axios-vs-fetch-best-http-requests/
+- https://www.geeksforgeeks.org/difference-between-fetch-and-axios-js-for-making-http-requests/
 
 - async ensures that the function returns a promise.
 - The keyword await makes JavaScript wait until that promise settles and returns its result.
