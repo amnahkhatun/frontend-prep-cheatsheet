@@ -1071,6 +1071,9 @@ defer was introduced before async. Its execution starts after parsing is complet
 
 Wherever they are specified, async scripts load at a low priority. They often load after all other scripts, without blocking DOM building. However, if an async script finishes downloading sooner, its execution can block DOM building and all synchronous scripts that finish downloading afterwards.
 
+- ![async](./images/async.png)
+- ![defer](./images/defer.png)
+
 - you can now use `<link rel="preload">` to communicate to the browser that you want to load them as soon as possible.
 - preload has other advantages too. Using as to specify the type of content to be preloaded allows the browser to:
 
