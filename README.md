@@ -615,8 +615,11 @@ let add = function(a,b){
 return a + b;
 }
 
-let addTwo = add.bind(this,2)
+let addTwo = add.bind(this,2) //2 will be a here
 let addThree = add.bind(this,3)
+
+addTwo(4) //4 is b
+addTwo(5)
 
 ```
 
@@ -670,6 +673,19 @@ Use of closure
 - Currying is a technique of evaluating a function with multiple arguments into sequence of function with single/multiple argument.
 
 https://codesandbox.io/s/css-html-flexbox-1jshh?file=/src/index.js
+
+```
+let sum = function (a){
+		return function(b){
+			if(b){
+				return sum(a+b)
+			}else{
+				return a
+			}
+		}
+}
+sum(1)(2)(3)(4)() //10
+```
 
 - Arrow functions don’t redefine the value of _this_ within their function body.
 
