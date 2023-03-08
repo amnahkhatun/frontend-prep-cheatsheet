@@ -670,7 +670,7 @@ Use of closure
 
 **Currying**
 
-- Currying is a technique of evaluating a function with multiple arguments into sequence of function with single/multiple argument.
+-  Currying is partial invocation of a function. Currying means first few arguments of a function is pre-processed and a function is returned
 
 https://codesandbox.io/s/css-html-flexbox-1jshh?file=/src/index.js
 
