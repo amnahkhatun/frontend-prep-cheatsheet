@@ -76,6 +76,11 @@ eg if width is 300px in border-box it will not add padding and margin
 * **display:none** means that the tag in question will not appear on the page at all (although you can still interact with it through the dom). There will be no space allocated for it between the other tags.
 
 * **visibility:hidden** means that unlike display:none, the tag is not visible, but space is allocated for it on the page. The tag is rendered, it just isn't seen on the page.
+
+- **display:none** turns off the layout of the elements, so they are not rendered
+- **visibility:hidden** hides the elements without changing their layouts
+- **opacity:0** causes the elements to be very transparent but users can still interact with them.
+
   http://jsfiddle.net/burhans/ZVgJj/
 
   https://dev.to/prashantandani/quick-guide-to-css-units-px-em-rem-4lic
@@ -474,7 +479,62 @@ promise.
 * Promise.resolve() returns a resolved promise.
 * Promise.race() takes an array (or any iterable) and returns a promise that resolves with the value of the first resolved promise in the iterable, or rejects with the reason of the first promise that rejects.
 * Promise.all() takes an array (or any iterable) and returns a promise that resolves when all of the promises in the iterable argument have resolved, or rejects with the reason of the first passed promise that rejects.
+```
+const prom1 = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    resolve("gfg1")
+  }, 1000)
+})
 
+const prom2 = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    reject("error")
+  }, 2000)
+})
+
+const prom3 = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    resolve("gfg2")
+  }, 3000)
+})
+
+const prom4 = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    resolve("gfg3")
+  }, 3000)
+})
+
+Promise.myall = function (values) {
+  const promise = new Promise(function (resolve, reject) {
+    let result = [];
+    let total = 0;
+    values.forEach((item, index) => {
+      Promise.resolve(item).then((res) => {
+        result[index] = res;
+        total++;
+        if (total === values.length)
+          resolve(result);
+      }).
+        catch((err) => {
+          reject(err);
+        })
+    })
+  })
+  return promise
+}
+
+Promise.myall([
+  prom1,
+  prom2,
+  prom3
+])
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((er) => {
+    console.log(er)
+  })
+```
 **filter vs find**
 
 - filter iterates over all the elements of the array and then returns the filtered array which satisfies the condition
@@ -807,6 +867,11 @@ console.log(adventurer.someNonExistentMethod?.());
 
 ## ![](./images/lifecycle.png)
 
+- The React team introduced a new architecture called Fiber to address these challenges. Fiber is a reimplementation of the React reconciliation algorithm that allows for greater control over the rendering process, better performance, and improved developer tools.
+
+- At a high level, the Fiber architecture is a new way of reconciling the virtual DOM in React. Reconciliation is the process by which React determines what changes need to be made to the UI based on changes to the application state. Traditionally, React performs reconciliation synchronously, which blocks the main thread while calculating the changes and updates the DOM.
+
+The Fiber architecture is designed to make this process more efficient by allowing React to perform reconciliation asynchronously. This means that instead of blocking the main thread, React can break up the work of reconciliation into smaller chunks, or “fibers”, that can be scheduled and processed independently.
 
 **props vs state**
 | Props | state |
