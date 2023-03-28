@@ -135,6 +135,10 @@ Since 1 < 101 < 1000, the third rule (C) has a greater level of specificity, and
 
 ## ![](./images/flex-box.png)
 
+- justify-content is used to space between in main axis ---------->
+- if align-items doesn't center, give height to the container - 100vh
+- align-content is used to space between in cross axis 
+
 
 **scss vs css**
 
