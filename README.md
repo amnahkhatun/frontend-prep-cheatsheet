@@ -483,6 +483,30 @@ promise.
 * Promise.resolve() returns a resolved promise.
 * Promise.race() takes an array (or any iterable) and returns a promise that resolves with the value of the first resolved promise in the iterable, or rejects with the reason of the first promise that rejects.
 * Promise.all() takes an array (or any iterable) and returns a promise that resolves when all of the promises in the iterable argument have resolved, or rejects with the reason of the first passed promise that rejects.
+* Promise.any() method is one of the promise concurrency methods. This method is useful for returning the first promise that fulfills.
+* Promise.allSettled() is typically used when you have multiple asynchronous tasks that are not dependent on one another to complete successfully, or you'd always like to know the result of each promise.
+
+In comparison, the Promise returned by Promise.all() may be more appropriate if the tasks are dependent on each other, or if you'd like to immediately reject upon any of them rejecting.
+
+## promise vs async await
+
+- Promises use .then(), .catch(), and .finally() methods for handling asynchronous results, while async/await uses await expressions inside an async function.
+- Async/await provides a more synchronous-looking code style, making it easier to read and understand.
+Error handling in async/await is done using try/catch blocks, similar to synchronous code, while Promises use .catch() and .finally() methods.
+- When to use what:
+
+If you are working with an environment that supports async/await (e.g., ECMAScript 2017 or later), prefer using async/await for better readability and easier error handling.
+If you are working with older environments that don't support async/await, use Promises.
+If you need to work with multiple asynchronous operations concurrently, you might still want to use Promises and their helper functions like Promise.all(), Promise.race(), Promise.allSettled(), etc., as they provide more control over concurrent execution.
+In summary, while both Promises and async/await are used for handling asynchronous operations, async/await offers a cleaner, more readable syntax. Use async/await when possible, but keep in mind that you might still need to use Promises in certain situations or when working with older environments.
+
+
+
+
+
+Regenerate response
+
+
 ```
 const prom1 = new Promise(function (resolve, reject) {
   setTimeout(() => {
